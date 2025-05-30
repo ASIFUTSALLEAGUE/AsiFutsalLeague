@@ -1,0 +1,60 @@
+
+body {
+    background-color: #f0f8ff;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.container {
+    padding: 20px;
+}
+
+.main-logo {
+    width: 150px;
+    margin-top: 20px;
+}
+
+h1 {
+    color: #1A8A34;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.btn {
+    padding: 15px;
+    border: none;
+    text-decoration: none;
+    color: white;
+    font-size: 1.1em;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+.btn.yellow {
+    background-color: #FFD700;
+    color: black;
+}
+
+.btn.green {
+    background-color: #1A8A34;
+}
+
+.asi-logo {
+    width: 80px;
+    margin-top: 40px;
+}
