@@ -1,1 +1,1 @@
-// portieri.js - Spring Cup logic (da adattare ASI)
+// JS Spring Cup adattato ASI - portieri.js

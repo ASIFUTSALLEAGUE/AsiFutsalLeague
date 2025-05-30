@@ -1,1 +1,1 @@
-// partita.js - Spring Cup logic (da adattare ASI)
+// JS Spring Cup adattato ASI - partita.js
