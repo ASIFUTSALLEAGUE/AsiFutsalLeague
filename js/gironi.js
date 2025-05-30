@@ -1,1 +1,1 @@
-// Placeholder for gironi.js - ASI FUTSAL LEAGUE
+// gironi.js - Spring Cup logic (da adattare ASI)

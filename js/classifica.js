@@ -1,1 +1,1 @@
-// Placeholder for classifica.js - ASI FUTSAL LEAGUE
+// classifica.js - Spring Cup logic (da adattare ASI)

@@ -1,1 +1,1 @@
-// Placeholder for main.js - ASI FUTSAL LEAGUE
+// main.js - Spring Cup logic (da adattare ASI)

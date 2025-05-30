@@ -1,1 +1,1 @@
-// Placeholder for portieri.js - ASI FUTSAL LEAGUE
+// portieri.js - Spring Cup logic (da adattare ASI)

@@ -1,1 +1,1 @@
-// Placeholder for marcatori.js - ASI FUTSAL LEAGUE
+// marcatori.js - Spring Cup logic (da adattare ASI)

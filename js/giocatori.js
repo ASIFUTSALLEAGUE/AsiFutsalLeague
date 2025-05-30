@@ -1,1 +1,1 @@
-// Placeholder for giocatori.js - ASI FUTSAL LEAGUE
+// giocatori.js - Spring Cup logic (da adattare ASI)

@@ -1,1 +1,1 @@
-// Placeholder for partita.js - ASI FUTSAL LEAGUE
+// partita.js - Spring Cup logic (da adattare ASI)
