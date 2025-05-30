@@ -1,60 +1,61 @@
 
 body {
-    background-color: #f0f8ff;
-    font-family: 'Segoe UI', sans-serif;
     margin: 0;
-    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-image: url('../img/background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    color: white;
     text-align: center;
 }
 
-.container {
-    padding: 20px;
+.home-container {
+    padding-top: 30px;
 }
 
 .main-logo {
-    width: 150px;
-    margin-top: 20px;
+    width: 140px;
+    margin-bottom: 20px;
 }
 
 h1 {
-    color: #1A8A34;
-    font-size: 2.5em;
+    font-size: 2.8em;
+    font-weight: bold;
+    color: #FFD700;
+    text-shadow: 2px 2px #1A8A34;
     margin-bottom: 30px;
 }
 
 .buttons {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 15px;
-    max-width: 300px;
-    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .btn {
-    padding: 15px;
-    border: none;
-    text-decoration: none;
-    color: white;
-    font-size: 1.1em;
-    border-radius: 10px;
+    display: inline-block;
+    padding: 15px 25px;
+    border-radius: 12px;
+    font-size: 1.2em;
     font-weight: bold;
-    transition: transform 0.2s;
+    background: linear-gradient(to right, #FF0000, #FFD700);
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease;
+    width: 100%;
+    max-width: 320px;
 }
 
 .btn:hover {
     transform: scale(1.05);
 }
 
-.btn.yellow {
-    background-color: #FFD700;
-    color: black;
-}
-
-.btn.green {
-    background-color: #1A8A34;
-}
-
-.asi-logo {
-    width: 80px;
-    margin-top: 40px;
+.live {
+    background: linear-gradient(to right, orange, red);
+    color: white;
 }
