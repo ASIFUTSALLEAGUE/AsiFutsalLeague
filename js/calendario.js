@@ -1,1 +1,4 @@
-// JS Spring Cup adattato ASI - calendario.js
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("content").innerHTML = "<p>Script attivo per CALENDARIO</p>";
+});

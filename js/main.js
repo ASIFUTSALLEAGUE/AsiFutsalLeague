@@ -1,1 +1,4 @@
-// JS Spring Cup adattato ASI - main.js
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("content").innerHTML = "<p>Script attivo per MAIN</p>";
+});
