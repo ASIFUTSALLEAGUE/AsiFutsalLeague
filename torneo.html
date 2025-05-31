@@ -32,23 +32,24 @@
     }
     .categoria-button {
       background: linear-gradient(to right, #1a8a34, #ffd700);
-      border: none;
+      border: 2px solid #ffffff;
       color: white;
-      font-size: 1em;
+      font-size: 1.1em;
       font-weight: bold;
-      border-radius: 10px;
-      padding: 12px;
-      margin: 10px auto;
+      border-radius: 12px;
+      padding: 14px;
+      margin: 12px auto;
       display: block;
       width: 90%;
-      max-width: 360px;
+      max-width: 400px;
       text-decoration: none;
       transition: 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
     .categoria-button:hover {
       background: linear-gradient(to right, #ffd700, #1a8a34);
       color: black;
-      transform: scale(1.05);
+      transform: scale(1.06);
     }
     .action-buttons {
       display: flex;
@@ -66,7 +67,7 @@
   <div class="container">
     <img src="Logo della ASI Futsal League.png" alt="Logo torneo" class="logo">
     <h1>CAMPIONATI</h1>
-    <div id="categorie-container">Caricamento categorie...</div>
+    <div id="categorie-container"></div>
     <div class="action-buttons">
       <a href="index.html" class="categoria-button">🏠 Home</a>
     </div>
