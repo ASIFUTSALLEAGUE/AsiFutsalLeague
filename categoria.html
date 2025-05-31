@@ -80,12 +80,19 @@
       width: 80px;
       margin-top: 30px;
     }
-  </style>
+  #titolo-categoria span { display: block; }
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.3em;
+    white-space: pre-line;
+  }
+}
+</style>
 </head>
 <body>
   <div class="container">
     <img src="Logo della ASI Futsal League.png" alt="Logo ASI" class="logo">
-    <h1 id="titolo-categoria">Categoria</h1>
+    <h1 id="titolo-categoria"><span id="categoria-nome"></span><br><span id="categoria-anno"></span></h1>
     <div class="buttons">
       <a class="btn" id="link-gironi" href="#">📋 Gironi</a>
       <a class="btn" id="link-calendario" href="#">📅 Calendario</a>

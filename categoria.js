@@ -4,7 +4,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const categoria = params.get("categoria");
 
   if (categoria) {
-    document.getElementById("titolo-categoria").textContent = categoria.toUpperCase();
+    const match = categoria.match(/^(.*?)(\d{4}-\d{2})$/);
+    if (match) {
+      document.getElementById("categoria-nome").textContent = match[1].trim().toUpperCase();
+      document.getElementById("categoria-anno").textContent = match[2];
+    } else {
+      document.getElementById("categoria-nome").textContent = categoria.toUpperCase();
+      document.getElementById("categoria-anno").textContent = "";
+    }
+
     document.getElementById("link-gironi").href = `gironi.html?categoria=${encodeURIComponent(categoria)}`;
     document.getElementById("link-calendario").href = `calendario.html?categoria=${encodeURIComponent(categoria)}`;
     document.getElementById("link-classifica").href = `classifica.html?categoria=${encodeURIComponent(categoria)}`;
