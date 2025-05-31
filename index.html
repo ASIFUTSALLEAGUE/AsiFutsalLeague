@@ -97,6 +97,14 @@
       }
     }
   </style>
+  <link rel="manifest" href="manifest.json">
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js").then(() => {
+        console.log("✅ Service Worker registrato!");
+      });
+    }
+  </script>
 </head>
 <body>
   <div class="container">
@@ -113,6 +121,7 @@
         <span class="icon">📺</span> DIRETTE INSTAGRAM 🔴
       </a>
     </div>
+    <button id="install-button" style="display:none; margin-top: 30px; padding: 12px 20px; font-size: 1em; font-weight: bold; background: linear-gradient(to right, #1a8a34, #ffd700); color: white; border: none; border-radius: 10px;">📲 Installa l'app</button>
     <img src="converted_logo_federazione.jpg" alt="Logo Federazione ASI" class="federation-logo">
   </div>
 </body>

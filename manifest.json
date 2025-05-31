@@ -1,0 +1,15 @@
+{
+  "name": "ASI Futsal League",
+  "short_name": "ASI Futsal",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#1a8a34",
+  "theme_color": "#ffd700",
+  "icons": [
+    {
+      "src": "Logo della ASI Futsal League.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
