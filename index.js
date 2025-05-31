@@ -1,0 +1,1 @@
+console.log("Pagina index ASI FUTSAL LEAGUE caricata correttamente");
