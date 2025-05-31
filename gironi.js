@@ -17,8 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(response => response.json())
     .then(data => {
       const categoriaData = data[categoria];
-      if (!categoriaData || !categoriaData.gironi) {
-        contenuto.textContent = "Nessun girone disponibile per questa categoria.";
+      if (!categoriaData || !categoriaData.gironi || Object.keys(categoriaData.gironi).length === 0) {
+        contenuto.textContent = "⚠️ Al momento nessun girone presente.";
         return;
       }
 
