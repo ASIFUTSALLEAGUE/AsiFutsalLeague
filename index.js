@@ -12,10 +12,11 @@ installBtn?.addEventListener("click", () => {
   if (deferredPrompt) {
     deferredPrompt.prompt();
     deferredPrompt.userChoice.then(() => {
-      deferredPrompt = null;
-      installBtn.style.display = "none";
+      console.log("✅ L'app è stata installata o ignorata.");
     });
+  } else {
+    alert("Se il tuo browser supporta l'app, potrai installarla dalla barra o dalle impostazioni.");
   }
 });
 
-console.log("✅ INDEX ASI FUTSAL LEAGUE pronto per installazione PWA");
+console.log("✅ INDEX pronto con pulsante installazione SEMPRE visibile");
