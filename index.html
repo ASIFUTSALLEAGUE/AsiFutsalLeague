@@ -8,115 +8,91 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <script src="index.js" defer></script>
   <style>
-    html, body {
+    body {
       margin: 0;
       padding: 0;
-      height: 100%;
       background: linear-gradient(135deg, #1a8a34, #ffd700);
-      font-family: 'Orbitron', Arial, sans-serif;
-      color: white;
+      font-family: 'Orbitron', sans-serif;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
+      min-height: 100vh;
+      flex-direction: column;
+      color: white;
+      text-align: center;
     }
     .container {
-      text-align: center;
       width: 100%;
-      max-width: 640px;
+      max-width: 720px;
       padding: 20px;
-      position: relative;
-      z-index: 1;
     }
     .logo {
-      max-width: 200px;
       width: 100%;
-      height: auto;
-      margin: 20px auto;
+      max-width: 220px;
+      margin: 0 auto 20px;
       display: block;
     }
     h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 36px;
+      font-size: 2.2em;
+      margin-bottom: 30px;
       color: #ffd700;
-      margin-bottom: 20px;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     }
     .buttons {
       display: flex;
       flex-direction: column;
       gap: 15px;
-      width: 100%;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 20px;
     }
     .btn {
-      padding: 16px 18px;
-      font-size: 18px;
-      font-weight: bold;
-      border-radius: 14px;
-      border: none;
-      text-decoration: none;
-      color: white;
-      background: linear-gradient(to right, #1a8a34, #ffd700);
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
-      transition: transform 0.2s ease, box-shadow 0.3s ease;
-      text-align: center;
-      width: 80%;
-      max-width: 280px;
-      display: inline-flex;
-      align-items: center;
+      display: flex;
       justify-content: center;
+      align-items: center;
       gap: 10px;
+      font-size: 1em;
+      font-weight: bold;
+      padding: 14px 18px;
+      background: linear-gradient(to right, #1a8a34, #ffd700);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
     }
     .btn:hover {
       transform: scale(1.05);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.4);
     }
     .live-btn {
       background: linear-gradient(to right, #1a8a34, #ff9800);
-      animation: pulse 1s infinite;
-    }
-    .btn span.icon {
-      display: inline-block;
-      animation: bounce 1.4s infinite;
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
+      animation: pulse 1.5s infinite;
     }
     @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); }
+      0% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.6); }
       70% { box-shadow: 0 0 0 10px rgba(255, 0, 0, 0); }
       100% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
     }
+    .federation-logo {
+      width: 90px;
+      margin-top: 30px;
+    }
     @media (max-width: 600px) {
-      html, body {
-        padding-top: 20px;
-      }
       h1 {
-        font-size: 24px;
+        font-size: 1.6em;
       }
       .btn {
-        font-size: 16px;
-        padding: 14px 16px;
-        width: 100%;
+        font-size: 0.95em;
+        padding: 12px;
       }
       .logo {
-        max-width: 150px;
-        margin-top: 10px;
-      }
-      .federation-logo {
-        width: 100px;
-        max-width: 120px;
-        margin-top: 30px;
+        max-width: 160px;
       }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <img src="logo-asi-futsal-league.png" alt="Logo ASI FUTSAL LEAGUE" class="logo">
+    <img src="Logo della ASI Futsal League.png" alt="Logo ASI Futsal League" class="logo">
     <h1>ASI FUTSAL LEAGUE</h1>
     <div class="buttons">
       <a class="btn" href="torneo.html"><span class="icon">📋</span> Campionati</a>
@@ -125,9 +101,11 @@
       <a class="btn" href="foto.html"><span class="icon">📸</span> Foto</a>
       <a class="btn" href="video.html"><span class="icon">🎬</span> Video</a>
       <a class="btn" href="interviste.html"><span class="icon">🎤</span> Interviste</a>
-      <a class="btn live-btn" href="https://www.instagram.com/laurentum_mirafin_academy" target="_blank"><span class="icon">📺</span> DIRETTE INSTAGRAM 🔴</a>
+      <a class="btn live-btn" href="https://www.instagram.com/laurentum_mirafin_academy" target="_blank">
+        <span class="icon">📺</span> DIRETTE INSTAGRAM 🔴
+      </a>
     </div>
+    <img src="converted_logo_federazione.jpg" alt="Logo Federazione ASI" class="federation-logo">
   </div>
-  <img src="converted_logo_federazione.jpg" alt="Logo Federazione ASI" class="federation-logo">
 </body>
 </html>
