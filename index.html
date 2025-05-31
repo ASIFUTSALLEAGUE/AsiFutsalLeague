@@ -63,6 +63,14 @@
       transform: scale(1.05);
       box-shadow: 0 6px 16px rgba(0,0,0,0.4);
     }
+    .btn .icon {
+      display: inline-block;
+      animation: bounce 1.4s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
     .live-btn {
       background: linear-gradient(to right, #1a8a34, #ff9800);
       animation: pulse 1.5s infinite;
