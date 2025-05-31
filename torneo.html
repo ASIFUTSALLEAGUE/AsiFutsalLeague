@@ -3,7 +3,7 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Campionati ASI FUTSAL LEAGUE</title>
+  <title>Campionati - ASI FUTSAL LEAGUE</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <style>
@@ -15,43 +15,38 @@
       font-family: 'Orbitron', Arial, sans-serif;
       color: white;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
     }
     .container {
       text-align: center;
       width: 100%;
       max-width: 640px;
-      padding: 20px;
-      position: relative;
-      z-index: 1;
+      padding: 40px 20px;
     }
     .logo {
       max-width: 200px;
       width: 100%;
       height: auto;
-      margin: 20px auto;
-      display: block;
+      margin-bottom: 20px;
     }
     h1 {
       font-family: 'Orbitron', sans-serif;
       font-size: 36px;
       color: #ffd700;
-      margin-bottom: 20px;
+      margin-bottom: 40px;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     }
     .buttons {
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 20px;
       width: 100%;
-      justify-content: center;
       align-items: center;
-      margin-bottom: 20px;
     }
     .btn {
-      padding: 16px 18px;
-      font-size: 18px;
+      padding: 18px 20px;
+      font-size: 20px;
       font-weight: bold;
       border-radius: 14px;
       border: none;
@@ -62,78 +57,56 @@
       transition: transform 0.2s ease, box-shadow 0.3s ease;
       text-align: center;
       width: 80%;
-      max-width: 280px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
+      max-width: 300px;
     }
     .btn:hover {
       transform: scale(1.05);
       box-shadow: 0 6px 18px rgba(0,0,0,0.5);
     }
-    .live-btn {
-      background: linear-gradient(to right, #1a8a34, #ff9800);
-      animation: pulse 1s infinite;
-    }
-    .btn span.icon {
+    .squadra-button {
       display: inline-block;
-      animation: bounce 1.4s infinite;
+      margin: 10px;
+      padding: 12px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      background-color: #fff;
+      color: #1a8a34;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: all 0.3s ease;
     }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
-    }
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); }
-      70% { box-shadow: 0 0 0 10px rgba(255, 0, 0, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+    .squadra-button:hover {
+      background-color: #ffd700;
+      color: #000;
     }
     @media (max-width: 600px) {
-      html, body {
-        padding-top: 20px;
-      }
       h1 {
-        font-size: 24px;
+        font-size: 28px;
       }
       .btn {
-        font-size: 16px;
-        padding: 14px 16px;
+        font-size: 18px;
+        padding: 16px;
         width: 100%;
-      }
-      .logo {
-        max-width: 150px;
-        margin-top: 10px;
-      }
-      .federation-logo {
-        width: 100px;
-        max-width: 120px;
-        margin-top: 30px;
       }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <img src="img/logo-asi-futsal-league.png" alt="Logo Campionati ASI FUTSAL LEAGUE" class="logo">
+    <img src="img/logo-asi-futsal-league.png" alt="Logo ASI Futsal League" class="logo">
     <h1>Campionati ASI FUTSAL LEAGUE</h1>
     <div class="buttons">
-      
       <a class="btn" href="categoria.html?categoria=Piccoli Amici 2019-20">Piccoli Amici 2019-20</a>
       <a class="btn" href="categoria.html?categoria=Minipulcini 2017-18">Minipulcini 2017-18</a>
       <a class="btn" href="categoria.html?categoria=Pulcini 2015-16">Pulcini 2015-16</a>
       <a class="btn" href="categoria.html?categoria=Esordienti 2013-14">Esordienti 2013-14</a>
       <a class="btn" href="categoria.html?categoria=Under 15 2011-12">Under 15 2011-12</a>
       <a class="btn" href="categoria.html?categoria=Under 13 Femminile">Under 13 Femminile</a>
-
-      <a class="btn" href="regolamento.html"><span class="icon">📑</span> Regolamento</a>
-      <a class="btn" href="comunicati.html"><span class="icon">📢</span> Comunicati</a>
-      <a class="btn" href="foto.html"><span class="icon">📸</span> Foto</a>
-      <a class="btn" href="video.html"><span class="icon">🎬</span> Video</a>
-      <a class="btn" href="interviste.html"><span class="icon">🎤</span> Interviste</a>
-      <a class="btn live-btn" href="https://www.instagram.com/laurentum_mirafin_academy" target="_blank"><span class="icon">📺</span> DIRETTE INSTAGRAM 🔴</a>
+    </div>
+    <div style="margin-top: 30px;">
+      <a href="javascript:history.back()" class="squadra-button">🔙 Torna Indietro</a>
+      <a href="index.html" class="squadra-button">🏠 Torna alla Home</a>
     </div>
   </div>
-  <img src="img/converted_logo_federazione.jpg" alt="Logo Federazione ASI" class="federation-logo">
 </body>
 </html>
