@@ -6,62 +6,57 @@
   <title>Campionati - ASI FUTSAL LEAGUE</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <script src="torneo.js" defer></script>
   <style>
-    html, body {
+    body {
       margin: 0;
       padding: 0;
-      height: 100%;
+      font-family: 'Orbitron', sans-serif;
       background: linear-gradient(135deg, #1a8a34, #ffd700);
-      font-family: 'Orbitron', Arial, sans-serif;
-      color: white;
       display: flex;
       justify-content: center;
       align-items: center;
+      min-height: 100vh;
+      color: white;
+      text-align: center;
     }
     .container {
-      text-align: center;
+      max-width: 720px;
       width: 100%;
-      max-width: 640px;
-      padding: 40px 20px;
+      padding: 20px;
     }
     .logo {
-      max-width: 200px;
       width: 100%;
-      height: auto;
-      margin-bottom: 20px;
+      max-width: 200px;
+      margin: 0 auto 20px;
+      display: block;
     }
     h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 36px;
+      font-size: 2.2em;
+      margin-bottom: 30px;
       color: #ffd700;
-      margin-bottom: 40px;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     }
     .buttons {
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      width: 100%;
-      align-items: center;
+      gap: 15px;
     }
     .btn {
-      padding: 18px 20px;
-      font-size: 20px;
+      padding: 16px;
+      font-size: 1em;
       font-weight: bold;
-      border-radius: 14px;
+      border-radius: 12px;
       border: none;
       text-decoration: none;
       color: white;
       background: linear-gradient(to right, #1a8a34, #ffd700);
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
       transition: transform 0.2s ease, box-shadow 0.3s ease;
-      text-align: center;
-      width: 80%;
-      max-width: 300px;
     }
     .btn:hover {
       transform: scale(1.05);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.5);
     }
     .squadra-button {
       display: inline-block;
@@ -79,21 +74,27 @@
       background-color: #ffd700;
       color: #000;
     }
+    .federation-logo {
+      max-width: 120px;
+      margin-top: 30px;
+    }
     @media (max-width: 600px) {
       h1 {
-        font-size: 28px;
+        font-size: 1.6em;
       }
       .btn {
-        font-size: 18px;
-        padding: 16px;
-        width: 100%;
+        font-size: 0.95em;
+        padding: 14px;
+      }
+      .logo {
+        max-width: 160px;
       }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <img src="logo-asi-futsal-league.png" alt="Logo ASI Futsal League" class="logo">
+    <img src="Logo della ASI Futsal League.png" alt="Logo ASI Futsal League" class="logo">
     <h1>Campionati ASI FUTSAL LEAGUE</h1>
     <div class="buttons">
       <a class="btn" href="categoria.html?categoria=Piccoli Amici 2019-20">Piccoli Amici 2019-20</a>
@@ -107,7 +108,7 @@
       <a href="javascript:history.back()" class="squadra-button">🔙 Torna Indietro</a>
       <a href="index.html" class="squadra-button">🏠 Torna alla Home</a>
     </div>
-    <img src="converted_logo_federazione.jpg" alt="Logo Federazione ASI" class="logo" style="margin-top: 20px; max-width: 120px;">
+    <img src="converted_logo_federazione.jpg" alt="Logo Federazione ASI" class="federation-logo">
   </div>
 </body>
 </html>
