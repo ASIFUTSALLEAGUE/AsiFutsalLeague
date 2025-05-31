@@ -1,4 +1,4 @@
 
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("Pagina TORNEO (Campionati ASI FUTSAL LEAGUE) caricata correttamente");
+  console.log("Campionati ASI FUTSAL LEAGUE – pagina caricata");
 });
