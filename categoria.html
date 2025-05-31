@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <title>Categoria - ASI FUTSAL LEAGUE</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <script src="categoria.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -29,27 +29,34 @@
     }
     h1 {
       font-size: 1.8em;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
       color: #ffd700;
+    }
+    h2 {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+      color: #ffffff;
     }
     .buttons {
       display: flex;
       flex-direction: column;
-      gap: 15px;
-      margin-bottom: 30px;
+      align-items: center;
+      gap: 10px;
     }
-    .btn {
-      padding: 14px;
-      font-size: 1em;
-      font-weight: bold;
-      color: white;
+    .squadra-button {
       background: linear-gradient(to right, #1a8a34, #ffd700);
+      color: white;
       border: none;
       border-radius: 10px;
+      padding: 10px 18px;
+      font-size: 1em;
+      font-weight: bold;
       text-decoration: none;
+      width: 90%;
+      max-width: 320px;
       transition: transform 0.2s ease;
     }
-    .btn:hover {
+    .squadra-button:hover {
       transform: scale(1.05);
       background: linear-gradient(to right, #ffd700, #1a8a34);
       color: black;
@@ -58,51 +65,22 @@
       display: flex;
       justify-content: center;
       gap: 10px;
-      flex-wrap: wrap;
-    }
-    .squadra-button {
-      background: linear-gradient(to right, #1a8a34, #ffd700);
-      color: white;
-      border: none;
-      border-radius: 10px;
-      padding: 10px 18px;
-      font-size: 0.95em;
-      font-weight: bold;
-      text-decoration: none;
-      transition: transform 0.2s ease;
-    }
-    .squadra-button:hover {
-      transform: scale(1.05);
-      background: linear-gradient(to right, #ffd700, #1a8a34);
-      color: black;
+      margin-top: 20px;
     }
     .federation-logo {
       width: 80px;
       margin-top: 30px;
     }
-  #titolo-categoria span { display: block; }
-@media (max-width: 600px) {
-  h1 {
-    font-size: 1.3em;
-    white-space: pre-line;
-  }
-}
-</style>
+  </style>
 </head>
 <body>
   <div class="container">
     <img src="Logo della ASI Futsal League.png" alt="Logo ASI" class="logo">
-    <h1 id="titolo-categoria"><span id="categoria-nome"></span><br><span id="categoria-anno"></span></h1>
-    <div class="buttons">
-      <a class="btn" id="link-gironi" href="#">📋 Gironi</a>
-      <a class="btn" id="link-calendario" href="#">📅 Calendario</a>
-      <a class="btn" id="link-classifica" href="#">📊 Classifica</a>
-      <a class="btn" id="link-marcatori" href="#">🎯 Marcatori</a>
-      <a class="btn" id="link-portieri" href="#">🧤 Miglior Portiere</a>
-      <a class="btn" id="link-giocatori" href="#">🏅 Miglior Giocatore</a>
-    </div>
+    <h1 id="nome-categoria"></h1>
+    <h2 id="anno-categoria"></h2>
+    <div class="buttons" id="pulsanti-categoria"></div>
     <div class="action-buttons">
-      <a href="javascript:history.back()" class="squadra-button">🔙 Indietro</a>
+      <a href="torneo.html" class="squadra-button">🔙 Indietro</a>
       <a href="index.html" class="squadra-button">🏠 Home</a>
     </div>
     <img src="converted_logo_federazione.jpg" alt="Logo Federazione ASI" class="federation-logo">
