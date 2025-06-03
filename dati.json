@@ -1,44 +1,35 @@
 {
-  "Piccoli Amici 2019-20": {
-    "gironi": {},
-    "partite": [],
-    "classificaMarcatori": [],
-    "classificaPortieri": [],
-    "classificaGiocatori": []
-  },
-  "Minipulcini 2017-18": {
-    "gironi": {},
-    "partite": [],
-    "classificaMarcatori": [],
-    "classificaPortieri": [],
-    "classificaGiocatori": []
-  },
-  "Pulcini 2015-16": {
-    "gironi": {},
-    "partite": [],
-    "classificaMarcatori": [],
-    "classificaPortieri": [],
-    "classificaGiocatori": []
-  },
-  "Esordienti 2013-14": {
-    "gironi": {},
-    "partite": [],
-    "classificaMarcatori": [],
-    "classificaPortieri": [],
-    "classificaGiocatori": []
-  },
-  "Under 15 2011-12": {
-    "gironi": {},
-    "partite": [],
-    "classificaMarcatori": [],
-    "classificaPortieri": [],
-    "classificaGiocatori": []
-  },
-  "Under 13 Femminile": {
-    "gironi": {},
-    "partite": [],
-    "classificaMarcatori": [],
-    "classificaPortieri": [],
-    "classificaGiocatori": []
+  "UNDER 15 2011-12": {
+    "squadre": [
+      {
+        "nome": "ACADEMY",
+        "logo": "loghi/academy.png"
+      },
+      {
+        "nome": "TORRINO",
+        "logo": "loghi/torrino.png"
+      }
+    ],
+    "classificaPortieri": [
+      {
+        "nome": "Luca Bianchi",
+        "squadra": "ACADEMY",
+        "voti": 5
+      },
+      {
+        "nome": "Marco Verdi",
+        "squadra": "TORRINO",
+        "voti": 3
+      }
+    ],
+    "gironi": [
+      {
+        "nome": "Girone A",
+        "squadre": [
+          "ACADEMY",
+          "TORRINO"
+        ]
+      }
+    ]
   }
 }
