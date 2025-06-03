@@ -1,44 +1,24 @@
 {
-  "Piccoli Amici 2019-20": {
-    "gironi": {},
-    "partite": [],
-    "classificaMarcatori": [],
-    "classificaPortieri": [],
-    "classificaGiocatori": []
+  "Under17": {
+    "gironi": {
+      "Girone A": [
+        "Squadra Alpha",
+        "Squadra Beta",
+        "Squadra Gamma"
+      ],
+      "Girone B": [
+        "Squadra Delta",
+        "Squadra Epsilon"
+      ]
+    }
   },
-  "Minipulcini 2017-18": {
-    "gironi": {},
-    "partite": [],
-    "classificaMarcatori": [],
-    "classificaPortieri": [],
-    "classificaGiocatori": []
-  },
-  "Pulcini 2015-16": {
-    "gironi": {},
-    "partite": [],
-    "classificaMarcatori": [],
-    "classificaPortieri": [],
-    "classificaGiocatori": []
-  },
-  "Esordienti 2013-14": {
-    "gironi": {},
-    "partite": [],
-    "classificaMarcatori": [],
-    "classificaPortieri": [],
-    "classificaGiocatori": []
-  },
-  "Under 15 2011-12": {
-    "gironi": {},
-    "partite": [],
-    "classificaMarcatori": [],
-    "classificaPortieri": [],
-    "classificaGiocatori": []
-  },
-  "Under 13 Femminile": {
-    "gironi": {},
-    "partite": [],
-    "classificaMarcatori": [],
-    "classificaPortieri": [],
-    "classificaGiocatori": []
+  "Femminile": {
+    "gironi": {
+      "Girone Unico": [
+        "Team Rosa",
+        "Team Blu",
+        "Team Verde"
+      ]
+    }
   }
 }
