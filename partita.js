@@ -1,78 +1,53 @@
-async function caricaPartita() {
-  const params = new URLSearchParams(location.search);
-  const id = params.get('id');
-  if (!id || !id.includes('-')) return;
 
-  const [categoria, indexStr] = id.split(/-(?=\d+$)/);
-  const index = parseInt(indexStr, 10);
-  if (!categoria || isNaN(index)) return;
+document.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  const categoria = params.get("categoria");
+  const idPartita = params.get("id");
+  const contenuto = document.getElementById("contenuto-partita");
+  const titolo = document.getElementById("titolo-partita");
 
-  const res = await fetch('dati.json');
-  const dati = await res.json();
-  const partita = dati[categoria]?.partite?.[index];
+  if (!categoria || !idPartita) {
+    titolo.textContent = "Dati non validi";
+    contenuto.textContent = "Partita non trovata.";
+    return;
+  }
 
-  if (!partita) return;
+  fetch("dati.json")
+    .then(res => res.json())
+    .then(data => {
+      const partite = data[categoria]?.partite || [];
+      const partita = partite.find(p => String(p.id) === idPartita);
 
-  const container = document.getElementById('riepilogo');
-  container.innerHTML = '';
+      if (!partita) {
+        contenuto.textContent = "Partita non trovata.";
+        return;
+      }
 
-  // Titolo e risultato
-  const titolo = document.createElement('h2');
-  const risultato = (partita.golA != null && partita.golB != null) ?
-    `${partita.squadraA} ${partita.golA} - ${partita.golB} ${partita.squadraB}` :
-    `${partita.squadraA} vs ${partita.squadraB}`;
-  titolo.textContent = risultato;
-  container.appendChild(titolo);
+      titolo.textContent = `${partita.squadraA} ${partita.golA} - ${partita.golB} ${partita.squadraB}`;
 
-  // Wrapper per marcatori
-  const wrapper = document.createElement('div');
-  wrapper.className = 'wrapper';
+      let html = `<div class="squadre">
+        <span><strong>${partita.squadraA}</strong></span>
+        <span><strong>${partita.squadraB}</strong></span>
+      </div>`;
 
-  function creaColonna(titoloSquadra, marcatori) {
-    const col = document.createElement('div');
-    col.className = 'colonna';
-    const title = document.createElement('h3');
-    title.textContent = titoloSquadra;
-    col.appendChild(title);
-    if (marcatori.length === 0) {
-      const empty = document.createElement('div');
-      empty.textContent = 'Nessun marcatore';
-      col.appendChild(empty);
-    } else {
-      marcatori.forEach(m => {
-        const div = document.createElement('div');
-        div.textContent = `${m.nome} (${m.gol})`;
-        col.appendChild(div);
+      html += '<div class="marcatori"><strong>Marcatori:</strong><br>';
+      html += '<ul>';
+      (partita.marcatori || []).forEach(m => {
+        html += `<li>${m.nome} (${m.squadra}) - ${m.gol} gol</li>`;
       });
-    }
-    return col;
-  }
+      html += '</ul></div>';
 
-  const marcatori = partita.marcatori || [];
-  const marcatoriA = marcatori.filter(m => m.squadra === partita.squadraA);
-  const marcatoriB = marcatori.filter(m => m.squadra === partita.squadraB);
+      html += '<div class="migliori">';
+      if (partita.migliorGiocatore)
+        html += `<p>🏅 Miglior Giocatore: ${partita.migliorGiocatore.nome} (${partita.migliorGiocatore.squadra})</p>`;
+      if (partita.migliorPortiere)
+        html += `<p>🧤 Miglior Portiere: ${partita.migliorPortiere.nome} (${partita.migliorPortiere.squadra})</p>`;
+      html += '</div>';
 
-  wrapper.appendChild(creaColonna(partita.squadraA, marcatoriA));
-  wrapper.appendChild(creaColonna(partita.squadraB, marcatoriB));
-  container.appendChild(wrapper);
-
-  // Miglior giocatore
-  if (partita.giocatore) {
-    const giocatoreDiv = document.createElement('div');
-    giocatoreDiv.className = 'info-extra';
-    giocatoreDiv.innerHTML = `<strong>Miglior Giocatore:</strong> ${partita.giocatore}` +
-      (partita.squadraGiocatore ? ` (${partita.squadraGiocatore})` : '');
-    container.appendChild(giocatoreDiv);
-  }
-
-  // Miglior portiere
-  if (partita.portiere) {
-    const portiereDiv = document.createElement('div');
-    portiereDiv.className = 'info-extra';
-    portiereDiv.innerHTML = `<strong>Miglior Portiere:</strong> ${partita.portiere}` +
-      (partita.squadraPortiere ? ` (${partita.squadraPortiere})` : '');
-    container.appendChild(portiereDiv);
-  }
-}
-
-window.onload = caricaPartita;
+      contenuto.innerHTML = html;
+    })
+    .catch(err => {
+      console.error(err);
+      contenuto.textContent = "Errore nel caricamento dei dati.";
+    });
+});

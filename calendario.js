@@ -1,49 +1,67 @@
-async function loadCalendar() {
-  const cat = new URLSearchParams(location.search).get('categoria');
-  const res = await fetch('dati.json');
-  const dati = await res.json();
-  const div = document.getElementById('calendario');
-  div.innerHTML = '';
 
-  const partite = dati[cat]?.partite || [];
-  const giornate = {};
+document.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  const categoria = params.get("categoria");
+  const titolo = document.getElementById("titolo-categoria");
+  const contenuto = document.getElementById("contenuto-calendario");
 
-  partite.forEach(p => {
-    const g = p.giornata || 0;
-    if (!giornate[g]) giornate[g] = [];
-    giornate[g].push(p);
-  });
+  if (!categoria) {
+    titolo.textContent = "Categoria non specificata";
+    contenuto.textContent = "Nessuna categoria indicata.";
+    return;
+  }
 
-  Object.keys(giornate).sort((a, b) => a.localeCompare(b, undefined, {numeric: true})).forEach(g => {
-    const section = document.createElement('div');
-    const titolo = document.createElement('h3');
-    titolo.textContent = "Giornata " + g;
-    section.appendChild(titolo);
+  titolo.textContent = "Calendario " + categoria.toUpperCase();
 
-    const table = document.createElement('table');
-    table.innerHTML = '<tr><th>Squadra A</th><th>Squadra B</th><th>Data</th><th>Ora</th><th>Campo</th><th>Risultato</th><th>Girone</th></tr>';
+  fetch("dati.json")
+    .then(response => response.json())
+    .then(data => {
+      const partite = (data[categoria] && data[categoria].partite) || [];
 
-    giornate[g].forEach(p => {
-      const row = document.createElement('tr');
-      const idPartita = `${cat}-${partite.indexOf(p)}`;
-      const risultato = (p.golA != null && p.golB != null) ? `${p.golA} - ${p.golB}` : 'Dettagli';
-      const risultatoLink = `<a href="partita.html?id=${idPartita}">${risultato}</a>`;
+      if (partite.length === 0) {
+        contenuto.textContent = "⚠️ Calendario non presente.";
+        return;
+      }
 
-      row.innerHTML = `
-        <td>${p.squadraA || ''}</td>
-        <td>${p.squadraB || ''}</td>
-        <td>${p.data || ''}</td>
-        <td>${p.orario || ''}</td>
-        <td>${p.campo || ''}</td>
-        <td>${risultatoLink}</td>
-        <td>${p.girone || ''}</td>
-      `;
-      table.appendChild(row);
+      const giornate = {};
+
+      partite.forEach(p => {
+        const giorno = p.giornata || "Giornata non specificata";
+        if (!giornate[giorno]) giornate[giorno] = [];
+        giornate[giorno].push(p);
+      });
+
+      contenuto.innerHTML = "";
+
+      Object.entries(giornate).forEach(([giornata, partite]) => {
+        const div = document.createElement("div");
+        div.className = "giornata";
+
+        const h2 = document.createElement("h2");
+        h2.textContent = giornata;
+        div.appendChild(h2);
+
+        partite.forEach(p => {
+          const partitaDiv = document.createElement("div");
+          partitaDiv.className = "partita";
+
+          if (p.golA !== undefined && p.golB !== undefined) {
+            const link = document.createElement("a");
+            link.href = `partita.html?categoria=${encodeURIComponent(categoria)}&id=${p.id}`;
+            link.textContent = `${p.squadraA} ${p.golA} - ${p.golB} ${p.squadraB}`;
+            partitaDiv.appendChild(link);
+          } else {
+            partitaDiv.textContent = `${p.squadraA} - ${p.squadraB}`;
+          }
+
+          div.appendChild(partitaDiv);
+        });
+
+        contenuto.appendChild(div);
+      });
+    })
+    .catch(error => {
+      console.error("Errore nel caricamento del calendario:", error);
+      contenuto.textContent = "Errore nel caricamento dei dati.";
     });
-
-    section.appendChild(table);
-    div.appendChild(section);
-  });
-}
-
-document.addEventListener('DOMContentLoaded', loadCalendar);
+});

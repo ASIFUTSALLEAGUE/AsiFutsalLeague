@@ -1,95 +1,65 @@
 
-body {
-  background: linear-gradient(to bottom right, #4CAF50, #CDDC39);
-  font-family: 'Arial', sans-serif;
 
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-image: url('https://cdn.pixabay.com/photo/2016/11/22/22/24/football-1850017_1280.jpg');
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  color: #fff;
-}
-
-.container {
-  max-width: 850px;
-  margin: auto;
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.75);
-  border-radius: 16px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-}
-
-button, .category-button {
-  display: block;
+.logo {
+  max-width: 180px;
   width: 100%;
-  padding: 15px;
-  margin: 10px 0;
-  font-size: 18px;
-  font-weight: bold;
-  background: linear-gradient(135deg, #ff3333, #0047ab);
-  color: white;
-  border: none;
-  border-radius: 12px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  height: auto;
+  margin: 10px auto;
+  display: block;
 }
-button:hover {
-  transform: scale(1.03);
-  opacity: 0.9;
+
+.federation-logo {
+  width: 80px;
+  max-width: 80px;
+  height: auto;
+  margin: 20px auto;
+  display: block;
+}
+
+.table-wrapper {
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  margin: 0 auto;
+  width: 100%;
 }
 
 table {
-  width: 100%;
-  margin-top: 20px;
   border-collapse: collapse;
-  background-color: rgba(255, 255, 255, 0.95);
-  color: #000;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  margin: 20px auto;
+  width: 90%;
+  max-width: 600px;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: white;
+  font-size: 0.9em;
 }
 
 th, td {
-  border: 1px solid #ccc;
-  padding: 12px;
-  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  text-align: left;
 }
 
-h1, h2, h3 {
-  text-align: center;
-  color: #fff;
-  margin-top: 0;
-}
 
-h1 {
-  color: yellow;
-  text-align: center;
-  text-shadow: 2px 2px 4px #000;
-  font-size: 2em;
-  margin-top: 10px;
-}
-
-.menu-button {
+#pulsanti-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: left;
-  padding: 12px 20px;
-  margin: 10px auto;
-  border-radius: 15px;
-  width: 80%;
-  background: linear-gradient(to right, #4CAF50, #FFEB3B);
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.squadra-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-family: 'Orbitron', sans-serif;
+  text-decoration: none;
+  border-radius: 12px;
+  background: linear-gradient(to right, #34a853, #fbbc05);
   color: white;
   font-weight: bold;
-  font-size: 1.1em;
-  border: none;
-  box-shadow: 2px 2px 5px #00000050;
-  cursor: pointer;
-}
-
-.menu-button i {
-  margin-right: 10px;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+  text-align: center;
+  width: 80%;
+  max-width: 300px;
 }
