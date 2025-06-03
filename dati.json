@@ -18,7 +18,29 @@
         "squadraA": "Baby Club",
         "squadraB": "MiniFutsal",
         "golA": 3,
-        "golB": 2
+        "golB": 2,
+        "marcatori": [
+          {
+            "nome": "Baby Club Player 1",
+            "gol": 0,
+            "squadra": "Baby Club"
+          },
+          {
+            "nome": "MiniFutsal Player 1",
+            "gol": 2,
+            "squadra": "MiniFutsal"
+          }
+        ],
+        "migliorGiocatore": {
+          "nome": "Baby Club Star",
+          "voto": 6,
+          "squadra": "Baby Club"
+        },
+        "migliorPortiere": {
+          "nome": "MiniFutsal Keeper",
+          "voto": 6,
+          "squadra": "MiniFutsal"
+        }
       },
       {
         "id": "PICCOLIAMICI2019-20_2",
@@ -26,7 +48,29 @@
         "squadraA": "Kids United",
         "squadraB": "Futsalino",
         "golA": 5,
-        "golB": 5
+        "golB": 5,
+        "marcatori": [
+          {
+            "nome": "Kids United Player 1",
+            "gol": 0,
+            "squadra": "Kids United"
+          },
+          {
+            "nome": "Futsalino Player 1",
+            "gol": 0,
+            "squadra": "Futsalino"
+          }
+        ],
+        "migliorGiocatore": {
+          "nome": "Kids United Star",
+          "voto": 9,
+          "squadra": "Kids United"
+        },
+        "migliorPortiere": {
+          "nome": "Futsalino Keeper",
+          "voto": 8,
+          "squadra": "Futsalino"
+        }
       }
     ]
   },
@@ -44,7 +88,29 @@
         "squadraA": "Giovanissimi 2017",
         "squadraB": "Futsal Club 18",
         "golA": 2,
-        "golB": 5
+        "golB": 5,
+        "marcatori": [
+          {
+            "nome": "Giovanissimi 2017 Player 1",
+            "gol": 0,
+            "squadra": "Giovanissimi 2017"
+          },
+          {
+            "nome": "Futsal Club 18 Player 1",
+            "gol": 3,
+            "squadra": "Futsal Club 18"
+          }
+        ],
+        "migliorGiocatore": {
+          "nome": "Giovanissimi 2017 Star",
+          "voto": 9,
+          "squadra": "Giovanissimi 2017"
+        },
+        "migliorPortiere": {
+          "nome": "Futsal Club 18 Keeper",
+          "voto": 7,
+          "squadra": "Futsal Club 18"
+        }
       }
     ]
   },
@@ -66,7 +132,29 @@
         "squadraA": "Pulcini Futsal",
         "squadraB": "Academy Junior",
         "golA": 5,
-        "golB": 3
+        "golB": 3,
+        "marcatori": [
+          {
+            "nome": "Pulcini Futsal Player 1",
+            "gol": 4,
+            "squadra": "Pulcini Futsal"
+          },
+          {
+            "nome": "Academy Junior Player 1",
+            "gol": 0,
+            "squadra": "Academy Junior"
+          }
+        ],
+        "migliorGiocatore": {
+          "nome": "Pulcini Futsal Star",
+          "voto": 9,
+          "squadra": "Pulcini Futsal"
+        },
+        "migliorPortiere": {
+          "nome": "Academy Junior Keeper",
+          "voto": 7,
+          "squadra": "Academy Junior"
+        }
       },
       {
         "id": "PULCINI2015-16_2",
@@ -74,7 +162,29 @@
         "squadraA": "Giovani Speranze",
         "squadraB": "Futsal School",
         "golA": 1,
-        "golB": 2
+        "golB": 2,
+        "marcatori": [
+          {
+            "nome": "Giovani Speranze Player 1",
+            "gol": 0,
+            "squadra": "Giovani Speranze"
+          },
+          {
+            "nome": "Futsal School Player 1",
+            "gol": 1,
+            "squadra": "Futsal School"
+          }
+        ],
+        "migliorGiocatore": {
+          "nome": "Giovani Speranze Star",
+          "voto": 9,
+          "squadra": "Giovani Speranze"
+        },
+        "migliorPortiere": {
+          "nome": "Futsal School Keeper",
+          "voto": 7,
+          "squadra": "Futsal School"
+        }
       }
     ]
   },
@@ -93,7 +203,29 @@
         "squadraA": "Esordienti Team A",
         "squadraB": "Esordienti Team B",
         "golA": 5,
-        "golB": 0
+        "golB": 0,
+        "marcatori": [
+          {
+            "nome": "Esordienti Team A Player 1",
+            "gol": 1,
+            "squadra": "Esordienti Team A"
+          },
+          {
+            "nome": "Esordienti Team B Player 1",
+            "gol": 0,
+            "squadra": "Esordienti Team B"
+          }
+        ],
+        "migliorGiocatore": {
+          "nome": "Esordienti Team A Star",
+          "voto": 6,
+          "squadra": "Esordienti Team A"
+        },
+        "migliorPortiere": {
+          "nome": "Esordienti Team B Keeper",
+          "voto": 9,
+          "squadra": "Esordienti Team B"
+        }
       }
     ]
   },
@@ -115,7 +247,29 @@
         "squadraA": "Team Under15 A",
         "squadraB": "Team Under15 B",
         "golA": 0,
-        "golB": 5
+        "golB": 5,
+        "marcatori": [
+          {
+            "nome": "Team Under15 A Player 1",
+            "gol": 0,
+            "squadra": "Team Under15 A"
+          },
+          {
+            "nome": "Team Under15 B Player 1",
+            "gol": 5,
+            "squadra": "Team Under15 B"
+          }
+        ],
+        "migliorGiocatore": {
+          "nome": "Team Under15 A Star",
+          "voto": 8,
+          "squadra": "Team Under15 A"
+        },
+        "migliorPortiere": {
+          "nome": "Team Under15 B Keeper",
+          "voto": 10,
+          "squadra": "Team Under15 B"
+        }
       },
       {
         "id": "UNDER152011-12_2",
@@ -123,7 +277,29 @@
         "squadraA": "Futsal U15",
         "squadraB": "Academy U15",
         "golA": 4,
-        "golB": 1
+        "golB": 1,
+        "marcatori": [
+          {
+            "nome": "Futsal U15 Player 1",
+            "gol": 3,
+            "squadra": "Futsal U15"
+          },
+          {
+            "nome": "Academy U15 Player 1",
+            "gol": 1,
+            "squadra": "Academy U15"
+          }
+        ],
+        "migliorGiocatore": {
+          "nome": "Futsal U15 Star",
+          "voto": 8,
+          "squadra": "Futsal U15"
+        },
+        "migliorPortiere": {
+          "nome": "Academy U15 Keeper",
+          "voto": 9,
+          "squadra": "Academy U15"
+        }
       }
     ]
   },
@@ -142,7 +318,29 @@
         "squadraA": "Femminile A",
         "squadraB": "Femminile B",
         "golA": 5,
-        "golB": 1
+        "golB": 1,
+        "marcatori": [
+          {
+            "nome": "Femminile A Player 1",
+            "gol": 1,
+            "squadra": "Femminile A"
+          },
+          {
+            "nome": "Femminile B Player 1",
+            "gol": 0,
+            "squadra": "Femminile B"
+          }
+        ],
+        "migliorGiocatore": {
+          "nome": "Femminile A Star",
+          "voto": 9,
+          "squadra": "Femminile A"
+        },
+        "migliorPortiere": {
+          "nome": "Femminile B Keeper",
+          "voto": 9,
+          "squadra": "Femminile B"
+        }
       }
     ]
   }
