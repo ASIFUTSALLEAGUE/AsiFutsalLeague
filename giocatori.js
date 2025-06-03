@@ -1,42 +1,40 @@
 
 document.addEventListener("DOMContentLoaded", () => {
-  const categoria = new URLSearchParams(window.location.search).get("categoria");
-  const div = document.getElementById("giocatori");
-  if (!categoria || !div) return;
+  const params = new URLSearchParams(window.location.search);
+  const categoria = params.get("categoria");
+  const titolo = document.getElementById("titolo-categoria");
+  const contenuto = document.getElementById("contenuto-giocatori");
+
+  if (!categoria) {
+    titolo.textContent = "Categoria non specificata";
+    contenuto.textContent = "Nessuna categoria indicata.";
+    return;
+  }
+
+  titolo.textContent = "Classifica Miglior Giocatore " + categoria.toUpperCase();
 
   fetch("dati.json")
-    .then(res => res.json())
+    .then(response => response.json())
     .then(data => {
       const lista = data[categoria]?.classificaGiocatori || [];
-      const squadre = data[categoria]?.squadre || [];
 
-      const getLogo = (squadraNome) => {
-        const s = squadre.find(el => el.nome === squadraNome);
-        return s ? `<img src="\${s.logo}" class="logo-squadra">` : "";
-      };
-
-      if (!lista.length) {
-        div.innerHTML = "<div class='empty-msg'>⚠️ Nessun dato disponibile.</div>";
+      if (lista.length === 0) {
+        contenuto.textContent = "⚠️ Nessun giocatore disponibile.";
         return;
       }
 
-      const table = document.createElement("table");
-      table.innerHTML = `<thead><tr><th>Giocatore</th><th>Squadra</th><th>Voti</th></tr></thead><tbody>`;
+      const ordinati = [...lista].sort((a, b) => b.voti - a.voti);
 
-      lista.sort((a, b) => b.voti - a.voti).forEach(info => {
-        table.innerHTML += `<tr>
-          <td>\${info.nome}</td>
-          <td>\${getLogo(info.squadra)} \${info.squadra}</td>
-          <td>\${info.voti}</td>
-        </tr>`;
+      let html = '<table><thead><tr><th>Nome</th><th>Squadra</th><th>Voti</th></tr></thead><tbody>';
+      ordinati.forEach(m => {
+        html += `<tr><td>${m.nome}</td><td>${m.squadra}</td><td>${m.voti}</td></tr>`;
       });
+      html += '</tbody></table>';
 
-      table.innerHTML += "</tbody>";
-      div.innerHTML = "";
-      div.appendChild(table);
+      contenuto.innerHTML = html;
     })
-    .catch(err => {
-      console.error("Errore caricamento giocatori:", err);
-      div.textContent = "Errore nel caricamento dei dati.";
+    .catch(error => {
+      console.error("Errore caricamento giocatori:", error);
+      contenuto.textContent = "Errore nel caricamento dei dati.";
     });
 });

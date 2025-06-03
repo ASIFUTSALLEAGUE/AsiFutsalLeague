@@ -1,43 +1,52 @@
 
 document.addEventListener("DOMContentLoaded", () => {
-  const categoria = new URLSearchParams(location.search).get("categoria");
-  const div = document.getElementById("portieri");
+  const categoria = new URLSearchParams(window.location.search).get("categoria");
+  const titolo = document.getElementById("titolo-categoria");
+  const container = document.getElementById("classifica-container");
 
-  if (!categoria || !div) return;
+  if (!categoria) {
+    titolo.textContent = "Categoria non specificata";
+    container.textContent = "Nessuna categoria indicata.";
+    return;
+  }
+
+  titolo.textContent = `Miglior Portiere - ${categoria.toUpperCase()}`;
 
   fetch("dati.json")
     .then(res => res.json())
     .then(data => {
-      const lista = data[categoria]?.classificaPortieri || [];
+      const classifica = data[categoria]?.classificaPortieri || [];
       const squadre = data[categoria]?.squadre || [];
 
-      const getLogo = (squadraNome) => {
-        const s = squadre.find(el => el.nome === squadraNome);
-        return s ? `<img src="\${s.logo}" class="logo-squadra">` : "";
-      };
-
-      if (!lista.length) {
-        div.innerHTML = "<div class='empty-msg'>⚠️ Nessun portiere disponibile.</div>";
+      if (!classifica.length) {
+        container.innerHTML = "<div class='empty-msg'>⚠️ Nessun portiere disponibile.</div>";
         return;
       }
 
+      const getLogo = (squadraNome) => {
+        const s = squadre.find(el => el.nome === squadraNome);
+        return s ? `<img src='${s.logo}' class='logo-squadra'>` : "";
+      };
+
       const table = document.createElement("table");
-      table.innerHTML = "<thead><tr><th>Portiere</th><th>Squadra</th><th>Voti</th></tr></thead><tbody>";
+      table.innerHTML = "<thead><tr><th>Nome</th><th>Squadra</th><th>Voti</th></tr></thead>";
 
-      lista.sort((a, b) => b.voti - a.voti).forEach(info => {
-        table.innerHTML += `<tr>
-          <td>\${info.nome}</td>
-          <td>\${getLogo(info.squadra)} \${info.squadra}</td>
-          <td>\${info.voti}</td>
-        </tr>`;
-      });
+      const tbody = document.createElement("tbody");
 
-      table.innerHTML += "</tbody>";
-      div.innerHTML = "";
-      div.appendChild(table);
+      classifica
+        .sort((a, b) => b.voti - a.voti)
+        .forEach(({ nome, squadra, voti }) => {
+          const logo = getLogo(squadra);
+          const row = document.createElement("tr");
+          row.innerHTML = `<td>${nome}</td><td>${logo} ${squadra}</td><td>${voti}</td>`;
+          tbody.appendChild(row);
+        });
+
+      table.appendChild(tbody);
+      container.appendChild(table);
     })
     .catch(err => {
-      console.error("Errore caricamento portieri:", err);
-      div.textContent = "Errore nel caricamento dei dati.";
+      container.textContent = "Errore nel caricamento dei dati.";
+      console.error(err);
     });
 });
