@@ -22,16 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      const squadre = categoriaData.squadre || [];
-
-      const getLogo = (squadraNome) => {
-        const s = squadre.find(el => el.nome === squadraNome);
-        return s ? `<img src='${s.logo}' class='logo-squadra'>` : "";
-      };
-
       contenuto.innerHTML = "";
 
-      Object.entries(categoriaData.gironi).forEach(([nomeGirone, squadreList]) => {
+      Object.entries(categoriaData.gironi).forEach(([nomeGirone, squadre]) => {
         const div = document.createElement("div");
         div.className = "girone";
 
@@ -40,9 +33,9 @@ document.addEventListener("DOMContentLoaded", () => {
         div.appendChild(h3);
 
         const ul = document.createElement("ul");
-        squadreList.forEach(squadra => {
+        squadre.forEach(squadra => {
           const li = document.createElement("li");
-          li.innerHTML = `${getLogo(squadra)} ${squadra}`;
+          li.textContent = squadra;
           ul.appendChild(li);
         });
 
