@@ -24,8 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const getLogo = (squadraNome) => {
-        const squadra = squadre.find(s => s.nome === squadraNome);
-        return squadra ? `<img src='${squadra.logo}' class='logo-squadra'>` : "";
+        const s = squadre.find(el => el.nome === squadraNome);
+        return s ? `<img src='${s.logo}' class='logo-squadra'>` : "";
       };
 
       const table = document.createElement("table");

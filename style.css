@@ -32,3 +32,12 @@ body {
   background: linear-gradient(to right, #ffd700, #1a8a34);
   color: black;
 }
+\n
+.logo-squadra {
+  height: 20px;
+  max-height: 20px;
+  width: auto;
+  vertical-align: middle;
+  margin-right: 6px;
+  object-fit: contain;
+}
