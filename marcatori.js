@@ -1,26 +1,29 @@
 
-document.addEventListener("DOMContentLoaded", () => {
-  const categoria = decodeURIComponent(new URLSearchParams(location.search).get("categoria"));
-  const container = document.getElementById("marcatori");
-  if (!categoria || !container) return;
+async function loadMarcatori() {
+  const cat = new URLSearchParams(location.search).get('categoria');
+  const res = await fetch('dati.json');
+  const dati = await res.json();
+  const div = document.getElementById('marcatori');
+  const count = {};
 
-  fetch("dati.json")
-    .then(response => response.json())
-    .then(data => {
-      const lista = data[categoria]?.marcatori || [];
-      if (!lista.length) {
-        container.innerHTML = "<div class='empty-msg'>⚠️ Nessun dato disponibile.</div>";
-        return;
-      }
-
-      let html = "<ul>";
-      lista.forEach(item => {
-        html += "<li>" + (item.nome || JSON.stringify(item)) + "</li>";
-      });
-      html += "</ul>";
-      container.innerHTML = html;
-    })
-    .catch(error => {
-      container.innerHTML = "<div class='empty-msg'>❌ Errore nel caricamento dati.</div>";
+  (dati[cat]?.partite || []).forEach(p => {
+    (p.marcatori || []).forEach(m => {
+      const nome = m.nome || "";
+      const squadra = m.squadra || "";
+      const key = nome + "_" + squadra;
+      if (!count[key]) count[key] = { nome, squadra, gol: 0 };
+      count[key].gol += parseInt(m.gol) || 0;
     });
-});
+  });
+
+  const table = document.createElement('table');
+  table.innerHTML = '<tr><th>Giocatore</th><th>Squadra</th><th>Gol</th></tr>';
+  Object.values(count)
+    .sort((a, b) => b.gol - a.gol)
+    .forEach(info => {
+      table.innerHTML += `<tr><td>${info.nome}</td><td>${info.squadra}</td><td>${info.gol}</td></tr>`;
+    });
+  div.appendChild(table);
+}
+
+document.addEventListener('DOMContentLoaded', loadMarcatori);

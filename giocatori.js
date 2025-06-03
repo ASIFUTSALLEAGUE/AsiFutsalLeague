@@ -1,26 +1,27 @@
 
-document.addEventListener("DOMContentLoaded", () => {
-  const categoria = decodeURIComponent(new URLSearchParams(location.search).get("categoria"));
-  const container = document.getElementById("giocatori");
-  if (!categoria || !container) return;
+async function loadGiocatori() {
+  const cat = new URLSearchParams(location.search).get('categoria');
+  const res = await fetch('dati.json');
+  const dati = await res.json();
+  const div = document.getElementById('giocatori');
+  const count = {};
 
-  fetch("dati.json")
-    .then(response => response.json())
-    .then(data => {
-      const lista = data[categoria]?.giocatori || [];
-      if (!lista.length) {
-        container.innerHTML = "<div class='empty-msg'>⚠️ Nessun dato disponibile.</div>";
-        return;
-      }
+  (dati[cat]?.partite || []).forEach(p => {
+    const nome = p.giocatore;
+    const squadra = p.squadraGiocatore || "-";
+    if (!nome) return;
+    const key = nome + "_" + squadra;
+    if (!count[key]) count[key] = { nome, squadra, voti: 0 };
+    count[key].voti += 1;
+  });
 
-      let html = "<ul>";
-      lista.forEach(item => {
-        html += "<li>" + (item.nome || JSON.stringify(item)) + "</li>";
-      });
-      html += "</ul>";
-      container.innerHTML = html;
-    })
-    .catch(error => {
-      container.innerHTML = "<div class='empty-msg'>❌ Errore nel caricamento dati.</div>";
+  const table = document.createElement('table');
+  table.innerHTML = '<tr><th>Giocatore</th><th>Squadra</th><th>Voti</th></tr>';
+  Object.values(count)
+    .sort((a, b) => b.voti - a.voti)
+    .forEach(info => {
+      table.innerHTML += `<tr><td>${info.nome}</td><td>${info.squadra}</td><td>${info.voti}</td></tr>`;
     });
-});
+  div.appendChild(table);
+}
+document.addEventListener('DOMContentLoaded', loadGiocatori);
