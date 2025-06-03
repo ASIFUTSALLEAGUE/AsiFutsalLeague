@@ -1,22 +1,13 @@
 
-let deferredPrompt;
-const installBtn = document.getElementById("install-button");
-
-window.addEventListener("beforeinstallprompt", (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  installBtn.style.display = "inline-block";
+document.addEventListener('DOMContentLoaded', async () => {
+  const res = await fetch('dati.json');
+  const dati = await res.json();
+  const container = document.getElementById('categorie');
+  Object.keys(dati).forEach(cat => {
+    const btn = document.createElement('button');
+    btn.textContent = cat;
+    btn.className = 'category-button';
+    btn.onclick = () => location.href = 'categoria.html?categoria=' + encodeURIComponent(cat);
+    container.appendChild(btn);
+  });
 });
-
-installBtn?.addEventListener("click", () => {
-  if (deferredPrompt) {
-    deferredPrompt.prompt();
-    deferredPrompt.userChoice.then(() => {
-      console.log("✅ L'app è stata installata o ignorata.");
-    });
-  } else {
-    alert("Se il tuo browser supporta l'app, potrai installarla dalla barra o dalle impostazioni.");
-  }
-});
-
-console.log("✅ INDEX pronto con pulsante installazione SEMPRE visibile");

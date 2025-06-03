@@ -1,76 +1,112 @@
 
-document.addEventListener("DOMContentLoaded", () => {
-  const params = new URLSearchParams(window.location.search);
-  const categoria = params.get("categoria");
-  const titolo = document.getElementById("titolo-categoria");
-  const contenuto = document.getElementById("contenuto-classifica");
+function creaElementoSquadraConLogo(nomeSquadra) {
+  const span = document.createElement("span");
 
-  if (!categoria) {
-    titolo.textContent = "Categoria non specificata";
-    contenuto.textContent = "Nessuna categoria indicata.";
+  const img = document.createElement("img");
+  const normalized = nomeSquadra.toLowerCase().replace(/\s+/g, '').replace(/[^a-z0-9]/gi, '');
+  img.src = `img/${normalized}.png`;
+  img.alt = nomeSquadra;
+  img.style.width = "20px";
+  img.style.height = "20px";
+  img.style.objectFit = "contain";
+  img.style.verticalAlign = "middle";
+  img.style.marginRight = "8px";
+
+  const nome = document.createTextNode(nomeSquadra);
+  span.appendChild(img);
+  span.appendChild(nome);
+  return span;
+}
+
+
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const categoria = new URLSearchParams(location.search).get("categoria");
+  const response = await fetch("dati.json");
+  const dati = await response.json();
+  const container = document.getElementById("classifica");
+
+  if (!dati[categoria]) {
+    container.innerHTML = "<p>Dati non disponibili per questa categoria.</p>";
     return;
   }
 
-  titolo.textContent = "Classifica " + categoria.toUpperCase();
+  const partite = dati[categoria].partite || [];
+  const gironiData = dati[categoria].gironi || {};
 
-  fetch("dati.json")
-    .then(response => response.json())
-    .then(data => {
-      const partite = data[categoria]?.partite || [];
-
-      if (partite.length === 0) {
-        contenuto.textContent = "⚠️ Classifica non disponibile. Nessuna partita presente.";
-        return;
-      }
-
-      const classifica = {};
-
-      partite.forEach(p => {
-        if (p.golA == null || p.golB == null) return;
-
-        const squadre = [p.squadraA, p.squadraB];
-        squadre.forEach(s => {
-          if (!classifica[s]) classifica[s] = { punti: 0, giocate: 0, vinte: 0, pari: 0, perse: 0, golFatti: 0, golSubiti: 0 };
-        });
-
-        classifica[p.squadraA].giocate++;
-        classifica[p.squadraB].giocate++;
-        classifica[p.squadraA].golFatti += p.golA;
-        classifica[p.squadraA].golSubiti += p.golB;
-        classifica[p.squadraB].golFatti += p.golB;
-        classifica[p.squadraB].golSubiti += p.golA;
-
-        if (p.golA > p.golB) {
-          classifica[p.squadraA].vinte++;
-          classifica[p.squadraA].punti += 3;
-          classifica[p.squadraB].perse++;
-        } else if (p.golA < p.golB) {
-          classifica[p.squadraB].vinte++;
-          classifica[p.squadraB].punti += 3;
-          classifica[p.squadraA].perse++;
-        } else {
-          classifica[p.squadraA].pari++;
-          classifica[p.squadraB].pari++;
-          classifica[p.squadraA].punti += 1;
-          classifica[p.squadraB].punti += 1;
-        }
-      });
-
-      const ordinata = Object.entries(classifica).map(([squadra, dati]) => ({
-        squadra,
-        ...dati,
-        diff: dati.golFatti - dati.golSubiti
-      })).sort((a, b) => b.punti - a.punti || b.diff - a.diff);
-
-      let html = '<table><thead><tr><th>Squadra</th><th>Pt</th><th>G</th><th>V</th><th>N</th><th>P</th><th>GF</th><th>GS</th><th>DR</th></tr></thead><tbody>';
-      ordinata.forEach(team => {
-        html += `<tr><td>${team.squadra}</td><td>${team.punti}</td><td>${team.giocate}</td><td>${team.vinte}</td><td>${team.pari}</td><td>${team.perse}</td><td>${team.golFatti}</td><td>${team.golSubiti}</td><td>${team.diff}</td></tr>`;
-      });
-      html += '</tbody></table>';
-      contenuto.innerHTML = html;
-    })
-    .catch(error => {
-      console.error("Errore nel caricamento:", error);
-      contenuto.textContent = "Errore nel caricamento dei dati.";
+  const gironi = {};
+  Object.keys(gironiData).forEach(g => {
+    gironi[g] = {};
+    gironiData[g].forEach(squadra => {
+      gironi[g][squadra] = {
+        punti: 0, vinte: 0, pareggi: 0, perse: 0, gf: 0, gs: 0
+      };
     });
+  });
+
+  partite.forEach(p => {
+    const { girone, squadraA, squadraB, golA, golB } = p;
+    if (!girone || !gironi[girone]) return;
+    if (!(squadraA in gironi[girone]) || !(squadraB in gironi[girone])) return;
+    if (typeof golA !== "number" || typeof golB !== "number") return;
+
+    gironi[girone][squadraA].gf += golA;
+    gironi[girone][squadraA].gs += golB;
+    gironi[girone][squadraB].gf += golB;
+    gironi[girone][squadraB].gs += golA;
+
+    if (golA > golB) {
+      gironi[girone][squadraA].punti += 3;
+      gironi[girone][squadraA].vinte++;
+      gironi[girone][squadraB].perse++;
+    } else if (golA < golB) {
+      gironi[girone][squadraB].punti += 3;
+      gironi[girone][squadraB].vinte++;
+      gironi[girone][squadraA].perse++;
+    } else {
+      gironi[girone][squadraA].punti++;
+      gironi[girone][squadraB].punti++;
+      gironi[girone][squadraA].pareggi++;
+      gironi[girone][squadraB].pareggi++;
+    }
+  });
+
+  const gironiOrdinati = Object.keys(gironi).sort();
+  gironiOrdinati.forEach(g => {
+    const sezione = document.createElement("div");
+    sezione.className = "girone-section";
+    const titolo = document.createElement("h3");
+    titolo.textContent = "Girone " + g;
+    sezione.appendChild(titolo);
+
+    const table = document.createElement("table");
+    table.innerHTML = "<tr><th>Squadra</th><th>Punti</th><th>Vinte</th><th>Pareggi</th><th>Perse</th><th>GF</th><th>GS</th></tr>";
+
+    const squadre = Object.entries(gironi[g]).sort((a, b) => {
+  const diffPunti = b[1].punti - a[1].punti;
+  if (diffPunti !== 0) return diffPunti;
+
+  const diffRetiA = a[1].gf - a[1].gs;
+  const diffRetiB = b[1].gf - b[1].gs;
+  const diffDifferenzaReti = diffRetiB - diffRetiA;
+  if (diffDifferenzaReti !== 0) return diffDifferenzaReti;
+
+  return b[1].gf - a[1].gf;
+});
+    squadre.forEach(([squadra, stats]) => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${squadra}</td>
+        <td>${stats.punti}</td>
+        <td>${stats.vinte}</td>
+        <td>${stats.pareggi}</td>
+        <td>${stats.perse}</td>
+        <td>${stats.gf}</td>
+        <td>${stats.gs}</td>`;
+      table.appendChild(row);
+    });
+
+    sezione.appendChild(table);
+    container.appendChild(sezione);
+  });
 });

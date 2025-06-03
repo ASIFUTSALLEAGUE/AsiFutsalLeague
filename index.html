@@ -1,14 +1,16 @@
-
 <!DOCTYPE html>
 <html lang="it">
-<head>
-  <meta charset="UTF-8">
-  <title>ASI FUTSAL LEAGUE</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
-  <script src="index.js" defer></script>
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   ASI FUTSAL LEAGUE
+  </title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&amp;display=swap" rel="stylesheet"/>
+  <script defer="" src="index.js">
+  </script>
   <style>
-    body {
+   body {
       margin: 0;
       padding: 0;
       background: linear-gradient(135deg, #1a8a34, #ffd700);
@@ -97,31 +99,69 @@
       }
     }
   </style>
-  <link rel="manifest" href="manifest.json">
+  <link href="manifest.json" rel="manifest"/>
   <script>
-    if ("serviceWorker" in navigator) {
+   if ("serviceWorker" in navigator) {
       navigator.serviceWorker.register("service-worker.js").then(() => {
         console.log("✅ Service Worker registrato!");
       });
     }
   </script>
-</head>
-<body>
+ </head>
+ <body>
   <div class="container">
-    <img src="Logo della ASI Futsal League.png" alt="Logo ASI Futsal League" class="logo">
-    <h1>ASI FUTSAL LEAGUE</h1>
-    <div class="buttons">
-      <a class="btn" href="torneo.html"><span class="icon">📋</span> Campionati</a>
-      <a class="btn" href="regolamento.html"><span class="icon">📑</span> Regolamento</a>
-      <a class="btn" href="comunicati.html"><span class="icon">📢</span> Comunicati</a>
-      <a class="btn" href="foto.html"><span class="icon">📸</span> Foto</a>
-      <a class="btn" href="video.html"><span class="icon">🎬</span> Video</a>
-      <a class="btn" href="interviste.html"><span class="icon">🎤</span> Interviste</a>
-                <button id="install-button" style="display:none; margin-top: 10px; padding: 12px 20px; font-size: 1em; font-weight: bold; background: linear-gradient(to right, #1a8a34, #ffd700); color: white; border: none; border-radius: 10px;">📲 Installa l'app</button>
-    </div>
-    <button id="install-button" style="display:none; margin-top: 30px; padding: 12px 20px; font-size: 1em; font-weight: bold; background: linear-gradient(to right, #1a8a34, #ffd700); color: white; border: none; border-radius: 10px;">📲 Installa l'app</button>
-    <img src="converted_logo_federazione.jpg" alt="Logo Federazione ASI" class="federation-logo">
-        <button id="install-button" style="display:none; margin-top: 10px; padding: 12px 20px; font-size: 1em; font-weight: bold; background: linear-gradient(to right, #1a8a34, #ffd700); color: white; border: none; border-radius: 10px;">📲 Installa l'app</button>
-    </div>
-</body>
+   <img alt="Logo ASI Futsal League" class="logo" src="Logo della ASI Futsal League.png" style="display:block;margin:20px auto;max-width:200px;"/>
+   <h1 style="text-align:center;color:yellow;text-shadow:2px 2px 4px #000;font-size:2em;">
+    ASI FUTSAL LEAGUE
+   </h1>
+   <div class="buttons">
+    <a class="btn" href="torneo.html">
+     <span class="icon">
+      📋
+     </span>
+     Campionati
+    </a>
+    <a class="btn" href="regolamento.html">
+     <span class="icon">
+      📑
+     </span>
+     Regolamento
+    </a>
+    <a class="btn" href="comunicati.html">
+     <span class="icon">
+      📢
+     </span>
+     Comunicati
+    </a>
+    <a class="btn" href="foto.html">
+     <span class="icon">
+      📸
+     </span>
+     Foto
+    </a>
+    <a class="btn" href="video.html">
+     <span class="icon">
+      🎬
+     </span>
+     Video
+    </a>
+    <a class="btn" href="interviste.html">
+     <span class="icon">
+      🎤
+     </span>
+     Interviste
+    </a>
+    <button id="install-button" style="display:none; margin-top: 10px; padding: 12px 20px; font-size: 1em; font-weight: bold; background: linear-gradient(to right, #1a8a34, #ffd700); color: white; border: none; border-radius: 10px;">
+     📲 Installa l'app
+    </button>
+   </div>
+   <button id="install-button" style="display:none; margin-top: 30px; padding: 12px 20px; font-size: 1em; font-weight: bold; background: linear-gradient(to right, #1a8a34, #ffd700); color: white; border: none; border-radius: 10px;">
+    📲 Installa l'app
+   </button>
+   <img alt="Logo Federazione ASI" class="federation-logo" src="converted_logo_federazione.jpg" style="display:block;margin:20px auto;max-width:200px;"/>
+   <button id="install-button" style="display:none; margin-top: 10px; padding: 12px 20px; font-size: 1em; font-weight: bold; background: linear-gradient(to right, #1a8a34, #ffd700); color: white; border: none; border-radius: 10px;">
+    📲 Installa l'app
+   </button>
+  </div>
+ </body>
 </html>
