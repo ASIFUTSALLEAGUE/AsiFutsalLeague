@@ -105,9 +105,3 @@ td {
   margin-bottom: 50px;
   flex-wrap: wrap;
 }
-
-
-.table-wrapper {
-  overflow-x: auto;
-  width: 100%;
-}
