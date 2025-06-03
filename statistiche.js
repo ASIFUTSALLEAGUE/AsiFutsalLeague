@@ -1,61 +1,26 @@
 
 document.addEventListener("DOMContentLoaded", () => {
-  const categoria = new URLSearchParams(window.location.search).get("categoria");
-  const titolo = document.getElementById("titolo-categoria");
-  const contenuto = document.getElementById("contenuto-statistiche");
-
-  if (!categoria) {
-    titolo.textContent = "Categoria non specificata";
-    contenuto.textContent = "Nessuna categoria indicata.";
-    return;
-  }
-
-  titolo.textContent = "Statistiche " + categoria.toUpperCase();
+  const categoria = decodeURIComponent(new URLSearchParams(location.search).get("categoria"));
+  const container = document.getElementById("statistiche");
+  if (!categoria || !container) return;
 
   fetch("dati.json")
-    .then(res => res.json())
+    .then(response => response.json())
     .then(data => {
-      const partite = data[categoria]?.partite || [];
-      if (partite.length === 0) {
-        contenuto.textContent = "⚠️ NESSUNA STATISTICA ANCORA PRESENTE";
+      const lista = data[categoria]?.statistiche || [];
+      if (!lista.length) {
+        container.innerHTML = "<div class='empty-msg'>⚠️ Nessun dato disponibile.</div>";
         return;
       }
 
-      let giocate = 0, golTotali = 0;
-      const squadreStats = {};
-
-      partite.forEach(p => {
-        if (p.golA != null && p.golB != null) {
-          giocate++;
-          golTotali += p.golA + p.golB;
-
-          [ [p.squadraA, p.golA, p.golB], [p.squadraB, p.golB, p.golA] ].forEach(([squadra, gf, gs]) => {
-            if (!squadreStats[squadra]) squadreStats[squadra] = { gf: 0, gs: 0, vinte: 0 };
-            squadreStats[squadra].gf += gf;
-            squadreStats[squadra].gs += gs;
-            if (gf > gs) squadreStats[squadra].vinte++;
-          });
-        }
+      let html = "<ul>";
+      lista.forEach(item => {
+        html += "<li>" + (item.nome || JSON.stringify(item)) + "</li>";
       });
-
-      const mediaGol = giocate > 0 ? (golTotali / giocate).toFixed(2) : "0";
-
-      const squadre = Object.entries(squadreStats);
-      const migliorAttacco = squadre.sort((a, b) => b[1].gf - a[1].gf)[0]?.[0] || "N/D";
-      const migliorDifesa = squadre.sort((a, b) => a[1].gs - b[1].gs)[0]?.[0] || "N/D";
-      const piùVittorie = squadre.sort((a, b) => b[1].vinte - a[1].vinte)[0]?.[0] || "N/D";
-
-      contenuto.innerHTML = `
-        <div class="stat-box">📊 Partite giocate: <strong>${giocate}</strong></div>
-        <div class="stat-box">🥅 Gol totali: <strong>${golTotali}</strong></div>
-        <div class="stat-box">📈 Media gol/partita: <strong>${mediaGol}</strong></div>
-        <div class="stat-box">💣 Miglior attacco: <strong>${migliorAttacco}</strong></div>
-        <div class="stat-box">🧱 Miglior difesa: <strong>${migliorDifesa}</strong></div>
-        <div class="stat-box">🏆 Più vittorie: <strong>${piùVittorie}</strong></div>
-      `;
+      html += "</ul>";
+      container.innerHTML = html;
     })
-    .catch(err => {
-      console.error("Errore:", err);
-      contenuto.textContent = "Errore nel caricamento dei dati.";
+    .catch(error => {
+      container.innerHTML = "<div class='empty-msg'>❌ Errore nel caricamento dati.</div>";
     });
 });
