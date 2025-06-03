@@ -1,23 +1,64 @@
 {
-  "Under17": {
+  "PICCOLI AMICI 2019-20": {
     "gironi": {
       "Girone A": [
-        "Squadra Alpha",
-        "Squadra Beta",
-        "Squadra Gamma"
+        "Baby Club",
+        "MiniFutsal",
+        "Kids United"
       ],
       "Girone B": [
-        "Squadra Delta",
-        "Squadra Epsilon"
+        "Futsalino",
+        "Little Stars"
       ]
     }
   },
-  "Femminile": {
+  "MINIPULCINI 2017-18": {
+    "gironi": {
+      "Girone A": [
+        "Giovanissimi 2017",
+        "Futsal Club 18"
+      ]
+    }
+  },
+  "PULCINI 2015-16": {
+    "gironi": {
+      "Girone A": [
+        "Pulcini Futsal",
+        "Academy Junior"
+      ],
+      "Girone B": [
+        "Giovani Speranze",
+        "Futsal School"
+      ]
+    }
+  },
+  "ESORDIENTI 2013-14": {
     "gironi": {
       "Girone Unico": [
-        "Team Rosa",
-        "Team Blu",
-        "Team Verde"
+        "Esordienti Team A",
+        "Esordienti Team B",
+        "Esordienti Team C"
+      ]
+    }
+  },
+  "UNDER 15 2011-12": {
+    "gironi": {
+      "Girone A": [
+        "Team Under15 A",
+        "Team Under15 B"
+      ],
+      "Girone B": [
+        "Futsal U15",
+        "Academy U15"
+      ]
+    }
+  },
+  "UNDER 13 FEMMINILE": {
+    "gironi": {
+      "Girone Rosa": [
+        "Femminile A",
+        "Femminile B",
+        "Femminile C"
       ]
     }
   }
