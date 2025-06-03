@@ -1,345 +1,69 @@
 {
-  "PICCOLI AMICI 2019-20": {
-    "gironi": {
-      "Girone A": [
-        "Baby Club",
-        "MiniFutsal",
-        "Kids United"
-      ],
-      "Girone B": [
-        "Futsalino",
-        "Little Stars"
-      ]
-    },
+  "UNDER 15 2011-12": {
     "partite": [
       {
-        "id": "PICCOLIAMICI2019-20_1",
+        "id": "test1",
         "giornata": "Giornata 1",
-        "squadraA": "Baby Club",
-        "squadraB": "MiniFutsal",
+        "squadraA": "Academy",
+        "squadraB": "Futsal Team",
         "golA": 3,
         "golB": 2,
         "marcatori": [
           {
-            "nome": "Baby Club Player 1",
-            "gol": 0,
-            "squadra": "Baby Club"
-          },
-          {
-            "nome": "MiniFutsal Player 1",
+            "nome": "Mario Rossi",
             "gol": 2,
-            "squadra": "MiniFutsal"
-          }
-        ],
-        "migliorGiocatore": {
-          "nome": "Baby Club Star",
-          "voto": 6,
-          "squadra": "Baby Club"
-        },
-        "migliorPortiere": {
-          "nome": "MiniFutsal Keeper",
-          "voto": 6,
-          "squadra": "MiniFutsal"
-        }
-      },
-      {
-        "id": "PICCOLIAMICI2019-20_2",
-        "giornata": "Giornata 2",
-        "squadraA": "Kids United",
-        "squadraB": "Futsalino",
-        "golA": 5,
-        "golB": 5,
-        "marcatori": [
-          {
-            "nome": "Kids United Player 1",
-            "gol": 0,
-            "squadra": "Kids United"
+            "squadra": "Academy"
           },
           {
-            "nome": "Futsalino Player 1",
-            "gol": 0,
-            "squadra": "Futsalino"
+            "nome": "Luca Verdi",
+            "gol": 1,
+            "squadra": "Academy"
+          },
+          {
+            "nome": "Marco Neri",
+            "gol": 2,
+            "squadra": "Futsal Team"
           }
         ],
         "migliorGiocatore": {
-          "nome": "Kids United Star",
-          "voto": 9,
-          "squadra": "Kids United"
-        },
-        "migliorPortiere": {
-          "nome": "Futsalino Keeper",
+          "nome": "Luca Verdi",
           "voto": 8,
-          "squadra": "Futsalino"
-        }
-      }
-    ]
-  },
-  "MINIPULCINI 2017-18": {
-    "gironi": {
-      "Girone A": [
-        "Giovanissimi 2017",
-        "Futsal Club 18"
-      ]
-    },
-    "partite": [
-      {
-        "id": "MINIPULCINI2017-18_1",
-        "giornata": "Giornata 1",
-        "squadraA": "Giovanissimi 2017",
-        "squadraB": "Futsal Club 18",
-        "golA": 2,
-        "golB": 5,
-        "marcatori": [
-          {
-            "nome": "Giovanissimi 2017 Player 1",
-            "gol": 0,
-            "squadra": "Giovanissimi 2017"
-          },
-          {
-            "nome": "Futsal Club 18 Player 1",
-            "gol": 3,
-            "squadra": "Futsal Club 18"
-          }
-        ],
-        "migliorGiocatore": {
-          "nome": "Giovanissimi 2017 Star",
-          "voto": 9,
-          "squadra": "Giovanissimi 2017"
+          "squadra": "Academy"
         },
         "migliorPortiere": {
-          "nome": "Futsal Club 18 Keeper",
+          "nome": "Fabio Bianchi",
           "voto": 7,
-          "squadra": "Futsal Club 18"
-        }
-      }
-    ]
-  },
-  "PULCINI 2015-16": {
-    "gironi": {
-      "Girone A": [
-        "Pulcini Futsal",
-        "Academy Junior"
-      ],
-      "Girone B": [
-        "Giovani Speranze",
-        "Futsal School"
-      ]
-    },
-    "partite": [
-      {
-        "id": "PULCINI2015-16_1",
-        "giornata": "Giornata 1",
-        "squadraA": "Pulcini Futsal",
-        "squadraB": "Academy Junior",
-        "golA": 5,
-        "golB": 3,
-        "marcatori": [
-          {
-            "nome": "Pulcini Futsal Player 1",
-            "gol": 4,
-            "squadra": "Pulcini Futsal"
-          },
-          {
-            "nome": "Academy Junior Player 1",
-            "gol": 0,
-            "squadra": "Academy Junior"
-          }
-        ],
-        "migliorGiocatore": {
-          "nome": "Pulcini Futsal Star",
-          "voto": 9,
-          "squadra": "Pulcini Futsal"
-        },
-        "migliorPortiere": {
-          "nome": "Academy Junior Keeper",
-          "voto": 7,
-          "squadra": "Academy Junior"
+          "squadra": "Futsal Team"
         }
       },
       {
-        "id": "PULCINI2015-16_2",
+        "id": "test2",
         "giornata": "Giornata 2",
-        "squadraA": "Giovani Speranze",
-        "squadraB": "Futsal School",
+        "squadraA": "Giovani Leoni",
+        "squadraB": "Academy",
         "golA": 1,
         "golB": 2,
         "marcatori": [
           {
-            "nome": "Giovani Speranze Player 1",
-            "gol": 0,
-            "squadra": "Giovani Speranze"
+            "nome": "Paolo Blu",
+            "gol": 1,
+            "squadra": "Giovani Leoni"
           },
           {
-            "nome": "Futsal School Player 1",
-            "gol": 1,
-            "squadra": "Futsal School"
+            "nome": "Luca Verdi",
+            "gol": 2,
+            "squadra": "Academy"
           }
         ],
         "migliorGiocatore": {
-          "nome": "Giovani Speranze Star",
+          "nome": "Luca Verdi",
           "voto": 9,
-          "squadra": "Giovani Speranze"
+          "squadra": "Academy"
         },
         "migliorPortiere": {
-          "nome": "Futsal School Keeper",
-          "voto": 7,
-          "squadra": "Futsal School"
-        }
-      }
-    ]
-  },
-  "ESORDIENTI 2013-14": {
-    "gironi": {
-      "Girone Unico": [
-        "Esordienti Team A",
-        "Esordienti Team B",
-        "Esordienti Team C"
-      ]
-    },
-    "partite": [
-      {
-        "id": "ESORDIENTI2013-14_1",
-        "giornata": "Giornata 1",
-        "squadraA": "Esordienti Team A",
-        "squadraB": "Esordienti Team B",
-        "golA": 5,
-        "golB": 0,
-        "marcatori": [
-          {
-            "nome": "Esordienti Team A Player 1",
-            "gol": 1,
-            "squadra": "Esordienti Team A"
-          },
-          {
-            "nome": "Esordienti Team B Player 1",
-            "gol": 0,
-            "squadra": "Esordienti Team B"
-          }
-        ],
-        "migliorGiocatore": {
-          "nome": "Esordienti Team A Star",
+          "nome": "Fabio Bianchi",
           "voto": 6,
-          "squadra": "Esordienti Team A"
-        },
-        "migliorPortiere": {
-          "nome": "Esordienti Team B Keeper",
-          "voto": 9,
-          "squadra": "Esordienti Team B"
-        }
-      }
-    ]
-  },
-  "UNDER 15 2011-12": {
-    "gironi": {
-      "Girone A": [
-        "Team Under15 A",
-        "Team Under15 B"
-      ],
-      "Girone B": [
-        "Futsal U15",
-        "Academy U15"
-      ]
-    },
-    "partite": [
-      {
-        "id": "UNDER152011-12_1",
-        "giornata": "Giornata 1",
-        "squadraA": "Team Under15 A",
-        "squadraB": "Team Under15 B",
-        "golA": 0,
-        "golB": 5,
-        "marcatori": [
-          {
-            "nome": "Team Under15 A Player 1",
-            "gol": 0,
-            "squadra": "Team Under15 A"
-          },
-          {
-            "nome": "Team Under15 B Player 1",
-            "gol": 5,
-            "squadra": "Team Under15 B"
-          }
-        ],
-        "migliorGiocatore": {
-          "nome": "Team Under15 A Star",
-          "voto": 8,
-          "squadra": "Team Under15 A"
-        },
-        "migliorPortiere": {
-          "nome": "Team Under15 B Keeper",
-          "voto": 10,
-          "squadra": "Team Under15 B"
-        }
-      },
-      {
-        "id": "UNDER152011-12_2",
-        "giornata": "Giornata 2",
-        "squadraA": "Futsal U15",
-        "squadraB": "Academy U15",
-        "golA": 4,
-        "golB": 1,
-        "marcatori": [
-          {
-            "nome": "Futsal U15 Player 1",
-            "gol": 3,
-            "squadra": "Futsal U15"
-          },
-          {
-            "nome": "Academy U15 Player 1",
-            "gol": 1,
-            "squadra": "Academy U15"
-          }
-        ],
-        "migliorGiocatore": {
-          "nome": "Futsal U15 Star",
-          "voto": 8,
-          "squadra": "Futsal U15"
-        },
-        "migliorPortiere": {
-          "nome": "Academy U15 Keeper",
-          "voto": 9,
-          "squadra": "Academy U15"
-        }
-      }
-    ]
-  },
-  "UNDER 13 FEMMINILE": {
-    "gironi": {
-      "Girone Rosa": [
-        "Femminile A",
-        "Femminile B",
-        "Femminile C"
-      ]
-    },
-    "partite": [
-      {
-        "id": "UNDER13FEMMINILE_1",
-        "giornata": "Giornata 1",
-        "squadraA": "Femminile A",
-        "squadraB": "Femminile B",
-        "golA": 5,
-        "golB": 1,
-        "marcatori": [
-          {
-            "nome": "Femminile A Player 1",
-            "gol": 1,
-            "squadra": "Femminile A"
-          },
-          {
-            "nome": "Femminile B Player 1",
-            "gol": 0,
-            "squadra": "Femminile B"
-          }
-        ],
-        "migliorGiocatore": {
-          "nome": "Femminile A Star",
-          "voto": 9,
-          "squadra": "Femminile A"
-        },
-        "migliorPortiere": {
-          "nome": "Femminile B Keeper",
-          "voto": 9,
-          "squadra": "Femminile B"
+          "squadra": "Futsal Team"
         }
       }
     ]
