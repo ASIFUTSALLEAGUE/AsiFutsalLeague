@@ -41,3 +41,30 @@ body {
   margin-right: 6px;
   object-fit: contain;
 }
+
+
+.logo-squadra {
+  height: 20px;
+  width: auto;
+  max-width: 20px;
+  max-height: 20px;
+  vertical-align: middle;
+  margin-right: 6px;
+  object-fit: contain;
+  display: inline-block;
+}
+
+
+.logo {
+  max-width: 180px;
+  height: auto;
+  margin: 20px auto;
+  display: block;
+}
+
+.federation-logo {
+  width: 80px;
+  max-width: 80px;
+  height: auto;
+  margin-top: 30px;
+}

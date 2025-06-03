@@ -17,6 +17,12 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(response => response.json())
     .then(data => {
       const lista = data[categoria]?.classificaMarcatori || [];
+      const squadre = data[categoria]?.squadre || [];
+
+      const getLogo = (squadraNome) => {
+        const s = squadre.find(el => el.nome === squadraNome);
+        return s ? `<img src='${s.logo}' class='logo-squadra'>` : "";
+      };
 
       if (lista.length === 0) {
         contenuto.textContent = "⚠️ Nessun marcatore disponibile.";
@@ -27,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       let html = '<table><thead><tr><th>Nome</th><th>Squadra</th><th>Gol</th></tr></thead><tbody>';
       ordinati.forEach(m => {
-        html += `<tr><td>${m.nome}</td><td>${m.squadra}</td><td>${m.gol}</td></tr>`;
+        html += `<tr><td>${m.nome}</td><td>${getLogo(m.squadra)} ${m.squadra}</td><td>${m.gol}</td></tr>`;
       });
       html += '</tbody></table>';
 

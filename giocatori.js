@@ -1,40 +1,38 @@
 
 document.addEventListener("DOMContentLoaded", () => {
-  const params = new URLSearchParams(window.location.search);
-  const categoria = params.get("categoria");
+  const categoria = new URLSearchParams(window.location.search).get("categoria");
   const titolo = document.getElementById("titolo-categoria");
-  const contenuto = document.getElementById("contenuto-giocatori");
+  const container = document.getElementById("contenuto-giocatori");
 
   if (!categoria) {
     titolo.textContent = "Categoria non specificata";
-    contenuto.textContent = "Nessuna categoria indicata.";
+    container.textContent = "Nessuna categoria indicata.";
     return;
   }
 
-  titolo.textContent = "Classifica Miglior Giocatore " + categoria.toUpperCase();
+  titolo.textContent = "Classifica Miglior Giocatore - " + categoria.toUpperCase();
 
   fetch("dati.json")
     .then(response => response.json())
     .then(data => {
       const lista = data[categoria]?.classificaGiocatori || [];
+      const squadre = data[categoria]?.squadre || [];
 
-      if (lista.length === 0) {
-        contenuto.textContent = "⚠️ Nessun giocatore disponibile.";
+      const getLogo = nome =>
+        (squadre.find(s => s.nome === nome)?.logo) ?
+        `<img src="\${squadre.find(s => s.nome === nome).logo}" class="logo-squadra">` : "";
+
+      if (!lista.length) {
+        container.innerHTML = "<div class='empty-msg'>⚠️ Nessun giocatore disponibile.</div>";
         return;
       }
 
-      const ordinati = [...lista].sort((a, b) => b.voti - a.voti);
-
       let html = '<table><thead><tr><th>Nome</th><th>Squadra</th><th>Voti</th></tr></thead><tbody>';
-      ordinati.forEach(m => {
-        html += `<tr><td>${m.nome}</td><td>${m.squadra}</td><td>${m.voti}</td></tr>`;
+      lista.sort((a, b) => b.voti - a.voti).forEach(({ nome, squadra, voti }) => {
+        html += `<tr><td>\${nome}</td><td>\${getLogo(squadra)} \${squadra}</td><td>\${voti}</td></tr>`;
       });
       html += '</tbody></table>';
 
-      contenuto.innerHTML = html;
-    })
-    .catch(error => {
-      console.error("Errore caricamento giocatori:", error);
-      contenuto.textContent = "Errore nel caricamento dei dati.";
+      container.innerHTML = html;
     });
 });
