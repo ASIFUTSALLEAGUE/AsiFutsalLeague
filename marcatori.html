@@ -1,86 +1,18 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8">
   <title>Marcatori - ASI FUTSAL LEAGUE</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="style.css" rel="stylesheet">
   <script src="marcatori.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Orbitron', sans-serif;
-      background: linear-gradient(135deg, #1a8a34, #ffd700);
-      color: white;
-      text-align: center;
-    }
-    .container {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-    .logo {
-      width: 100%;
-      max-width: 200px;
-      margin: 20px auto;
-      display: block;
-    }
-    h1 {
-      font-size: 1.8em;
-      margin-bottom: 30px;
-      color: #ffd700;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 20px;
-      background-color: rgba(255,255,255,0.1);
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    th, td {
-      padding: 8px;
-      border-bottom: 1px solid rgba(255,255,255,0.3);
-    }
-    th {
-      background-color: #1a8a34;
-      color: #fff;
-    }
-    .action-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .squadra-button {
-      background: linear-gradient(to right, #1a8a34, #ffd700);
-      color: white;
-      border: none;
-      border-radius: 10px;
-      padding: 10px 18px;
-      font-size: 0.95em;
-      font-weight: bold;
-      text-decoration: none;
-      transition: transform 0.2s ease;
-    }
-    .squadra-button:hover {
-      transform: scale(1.05);
-      background: linear-gradient(to right, #ffd700, #1a8a34);
-      color: black;
-    }
-    .federation-logo {
-      width: 80px;
-      margin-top: 30px;
-    }
-  </style>
 </head>
 <body>
   <div class="container">
     <img src="Logo della ASI Futsal League.png" alt="Logo ASI" class="logo">
-    <h1 id="titolo-categoria">Classifica Marcatori</h1>
-    <div id="contenuto-marcatori">Caricamento marcatori...</div>
+    <h1 id="titolo-categoria">Marcatori</h1>
+    <div id="contenuto-marcatori">Caricamento dati...</div>
     <div class="action-buttons">
       <a href="javascript:history.back()" class="squadra-button">🔙 Indietro</a>
       <a href="index.html" class="squadra-button">🏠 Home</a>
