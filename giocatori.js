@@ -1,27 +1,40 @@
 
-async function loadGiocatori() {
-  const cat = new URLSearchParams(location.search).get('categoria');
-  const res = await fetch('dati.json');
-  const dati = await res.json();
-  const div = document.getElementById('giocatori');
-  const count = {};
+document.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  const categoria = params.get("categoria");
+  const titolo = document.getElementById("titolo-categoria");
+  const contenuto = document.getElementById("contenuto-giocatori");
 
-  (dati[cat]?.partite || []).forEach(p => {
-    const nome = p.giocatore;
-    const squadra = p.squadraGiocatore || "-";
-    if (!nome) return;
-    const key = nome + "_" + squadra;
-    if (!count[key]) count[key] = { nome, squadra, voti: 0 };
-    count[key].voti += 1;
-  });
+  if (!categoria) {
+    titolo.textContent = "Categoria non specificata";
+    contenuto.textContent = "Nessuna categoria indicata.";
+    return;
+  }
 
-  const table = document.createElement('table');
-  table.innerHTML = '<tr><th>Giocatore</th><th>Squadra</th><th>Voti</th></tr>';
-  Object.values(count)
-    .sort((a, b) => b.voti - a.voti)
-    .forEach(info => {
-      table.innerHTML += `<tr><td>${info.nome}</td><td>${info.squadra}</td><td>${info.voti}</td></tr>`;
+  titolo.textContent = "Classifica Miglior Giocatore " + categoria.toUpperCase();
+
+  fetch("dati.json")
+    .then(response => response.json())
+    .then(data => {
+      const lista = data[categoria]?.classificaGiocatori || [];
+
+      if (lista.length === 0) {
+        contenuto.textContent = "⚠️ Nessun giocatore disponibile.";
+        return;
+      }
+
+      const ordinati = [...lista].sort((a, b) => b.voti - a.voti);
+
+      let html = '<table><thead><tr><th>Nome</th><th>Squadra</th><th>Voti</th></tr></thead><tbody>';
+      ordinati.forEach(m => {
+        html += `<tr><td>${m.nome}</td><td>${m.squadra}</td><td>${m.voti}</td></tr>`;
+      });
+      html += '</tbody></table>';
+
+      contenuto.innerHTML = html;
+    })
+    .catch(error => {
+      console.error("Errore caricamento giocatori:", error);
+      contenuto.textContent = "Errore nel caricamento dei dati.";
     });
-  div.appendChild(table);
-}
-document.addEventListener('DOMContentLoaded', loadGiocatori);
+});
