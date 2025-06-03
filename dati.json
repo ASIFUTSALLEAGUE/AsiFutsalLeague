@@ -10,7 +10,25 @@
         "Futsalino",
         "Little Stars"
       ]
-    }
+    },
+    "partite": [
+      {
+        "id": "PICCOLIAMICI2019-20_1",
+        "giornata": "Giornata 1",
+        "squadraA": "Baby Club",
+        "squadraB": "MiniFutsal",
+        "golA": 3,
+        "golB": 2
+      },
+      {
+        "id": "PICCOLIAMICI2019-20_2",
+        "giornata": "Giornata 2",
+        "squadraA": "Kids United",
+        "squadraB": "Futsalino",
+        "golA": 5,
+        "golB": 5
+      }
+    ]
   },
   "MINIPULCINI 2017-18": {
     "gironi": {
@@ -18,7 +36,17 @@
         "Giovanissimi 2017",
         "Futsal Club 18"
       ]
-    }
+    },
+    "partite": [
+      {
+        "id": "MINIPULCINI2017-18_1",
+        "giornata": "Giornata 1",
+        "squadraA": "Giovanissimi 2017",
+        "squadraB": "Futsal Club 18",
+        "golA": 2,
+        "golB": 5
+      }
+    ]
   },
   "PULCINI 2015-16": {
     "gironi": {
@@ -30,7 +58,25 @@
         "Giovani Speranze",
         "Futsal School"
       ]
-    }
+    },
+    "partite": [
+      {
+        "id": "PULCINI2015-16_1",
+        "giornata": "Giornata 1",
+        "squadraA": "Pulcini Futsal",
+        "squadraB": "Academy Junior",
+        "golA": 5,
+        "golB": 3
+      },
+      {
+        "id": "PULCINI2015-16_2",
+        "giornata": "Giornata 2",
+        "squadraA": "Giovani Speranze",
+        "squadraB": "Futsal School",
+        "golA": 1,
+        "golB": 2
+      }
+    ]
   },
   "ESORDIENTI 2013-14": {
     "gironi": {
@@ -39,7 +85,17 @@
         "Esordienti Team B",
         "Esordienti Team C"
       ]
-    }
+    },
+    "partite": [
+      {
+        "id": "ESORDIENTI2013-14_1",
+        "giornata": "Giornata 1",
+        "squadraA": "Esordienti Team A",
+        "squadraB": "Esordienti Team B",
+        "golA": 5,
+        "golB": 0
+      }
+    ]
   },
   "UNDER 15 2011-12": {
     "gironi": {
@@ -51,7 +107,25 @@
         "Futsal U15",
         "Academy U15"
       ]
-    }
+    },
+    "partite": [
+      {
+        "id": "UNDER152011-12_1",
+        "giornata": "Giornata 1",
+        "squadraA": "Team Under15 A",
+        "squadraB": "Team Under15 B",
+        "golA": 0,
+        "golB": 5
+      },
+      {
+        "id": "UNDER152011-12_2",
+        "giornata": "Giornata 2",
+        "squadraA": "Futsal U15",
+        "squadraB": "Academy U15",
+        "golA": 4,
+        "golB": 1
+      }
+    ]
   },
   "UNDER 13 FEMMINILE": {
     "gironi": {
@@ -60,6 +134,16 @@
         "Femminile B",
         "Femminile C"
       ]
-    }
+    },
+    "partite": [
+      {
+        "id": "UNDER13FEMMINILE_1",
+        "giornata": "Giornata 1",
+        "squadraA": "Femminile A",
+        "squadraB": "Femminile B",
+        "golA": 5,
+        "golB": 1
+      }
+    ]
   }
 }
