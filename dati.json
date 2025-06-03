@@ -1,82 +1,34 @@
 {
   "UNDER 15 2011-12": {
-    "gironi": {
-      "Girone A": [
-        "Academy",
-        "Futsal Team",
-        "Giovani Leoni"
-      ]
-    },
-    "partite": [
+    "squadre": [
       {
-        "id": "UNDER15_1",
-        "giornata": "Giornata 1",
-        "squadraA": "Academy",
-        "squadraB": "Futsal Team",
-        "golA": 3,
-        "golB": 2,
-        "marcatori": [
-          {
-            "nome": "Luca Rossi",
-            "gol": 2,
-            "squadra": "Academy"
-          },
-          {
-            "nome": "Marco Verdi",
-            "gol": 1,
-            "squadra": "Academy"
-          },
-          {
-            "nome": "Pietro Neri",
-            "gol": 2,
-            "squadra": "Futsal Team"
-          }
-        ],
-        "migliorGiocatore": {
-          "nome": "Luca Rossi",
-          "voto": 8,
-          "squadra": "Academy"
-        },
-        "migliorPortiere": {
-          "nome": "Giovanni Bianchi",
-          "voto": 7,
-          "squadra": "Futsal Team"
-        }
+        "nome": "ACADEMY",
+        "logo": "loghi/academy.png"
       },
       {
-        "id": "UNDER15_2",
-        "giornata": "Giornata 2",
-        "squadraA": "Giovani Leoni",
-        "squadraB": "Academy",
-        "golA": 1,
-        "golB": 4,
-        "marcatori": [
-          {
-            "nome": "Alessandro Blu",
-            "gol": 1,
-            "squadra": "Giovani Leoni"
-          },
-          {
-            "nome": "Luca Rossi",
-            "gol": 2,
-            "squadra": "Academy"
-          },
-          {
-            "nome": "Andrea Verde",
-            "gol": 2,
-            "squadra": "Academy"
-          }
-        ],
-        "migliorGiocatore": {
-          "nome": "Andrea Verde",
-          "voto": 9,
-          "squadra": "Academy"
-        },
-        "migliorPortiere": {
-          "nome": "Luca Gialli",
-          "voto": 7,
-          "squadra": "Giovani Leoni"
-        }
+        "nome": "TORRINO",
+        "logo": "loghi/torrino.png"
+      }
+    ],
+    "classificaPortieri": [
+      {
+        "nome": "Luca Bianchi",
+        "squadra": "ACADEMY",
+        "voti": 5
+      },
+      {
+        "nome": "Marco Verdi",
+        "squadra": "TORRINO",
+        "voti": 3
+      }
+    ],
+    "gironi": [
+      {
+        "nome": "Girone A",
+        "squadre": [
+          "ACADEMY",
+          "TORRINO"
+        ]
       }
     ]
   }
