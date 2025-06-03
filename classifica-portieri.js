@@ -1,27 +1,29 @@
 
-async function loadPortieri() {
-  const cat = new URLSearchParams(location.search).get('categoria');
-  const res = await fetch('dati.json');
-  const dati = await res.json();
-  const div = document.getElementById('portieri');
-  const count = {};
+document.addEventListener("DOMContentLoaded", () => {
+  const categoria = decodeURIComponent(new URLSearchParams(location.search).get("categoria"));
+  const div = document.getElementById("portieri");
+  if (!categoria || !div) return;
 
-  (dati[cat]?.partite || []).forEach(p => {
-    const nome = p.portiere;
-    const squadra = p.squadraPortiere || "-";
-    if (!nome) return;
-    const key = nome + "_" + squadra;
-    if (!count[key]) count[key] = { nome, squadra, voti: 0 };
-    count[key].voti += 1;
-  });
+  fetch("dati.json")
+    .then(res => res.json())
+    .then(dati => {
+      const lista = dati[categoria]?.classificaPortieri || [];
+      const squadre = dati[categoria]?.squadre || [];
+      const getLogo = nome => {
+        const s = squadre.find(el => el.nome === nome);
+        return s && s.logo ? "<img src='" + s.logo + "' class='logo-squadra'>" : "";
+      };
 
-  const table = document.createElement('table');
-  table.innerHTML = '<tr><th>Portiere</th><th>Squadra</th><th>Voti</th></tr>';
-  Object.values(count)
-    .sort((a, b) => b.voti - a.voti)
-    .forEach(info => {
-      table.innerHTML += `<tr><td>${info.nome}</td><td>${info.squadra}</td><td>${info.voti}</td></tr>`;
+      if (!lista.length) {
+        div.innerHTML = "<div class='empty-msg'>⚠️ Nessun dato disponibile.</div>";
+        return;
+      }
+
+      let html = "<table><thead><tr><th>Portiere</th><th>Squadra</th><th>Voti</th></tr></thead><tbody>";
+      lista.sort((a, b) => b.voti - a.voti).forEach(info => {
+        html += "<tr><td>" + info.nome + "</td><td>" + getLogo(info.squadra) + " " + info.squadra + "</td><td>" + info.voti + "</td></tr>";
+      });
+      html += "</tbody></table>";
+      div.innerHTML = html;
     });
-  div.appendChild(table);
-}
-document.addEventListener('DOMContentLoaded', loadPortieri);
+});
