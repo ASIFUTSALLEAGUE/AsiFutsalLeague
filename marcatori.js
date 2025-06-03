@@ -1,19 +1,19 @@
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener(`DOMContentLoaded`, () => {
   const params = new URLSearchParams(window.location.search);
-  const categoria = params.get("categoria");
-  const titolo = document.getElementById("titolo-categoria");
-  const contenuto = document.getElementById("contenuto-marcatori");
+  const categoria = params.get(`categoria`);
+  const titolo = document.getElementById(`titolo-categoria`);
+  const contenuto = document.getElementById(`contenuto-marcatori`);
 
   if (!categoria) {
-    titolo.textContent = "Categoria non specificata";
-    contenuto.textContent = "Nessuna categoria indicata.";
+    titolo.textContent = `Categoria non specificata`;
+    contenuto.textContent = `Nessuna categoria indicata.`;
     return;
   }
 
-  titolo.textContent = "Classifica Marcatori " + categoria.toUpperCase();
+  titolo.textContent = `Classifica Marcatori ` + categoria.toUpperCase();
 
-  fetch("dati.json")
+  fetch(`dati.json`)
     .then(response => response.json())
     .then(data => {
       const lista = data[categoria]?.classificaMarcatori || [];
@@ -21,11 +21,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const getLogo = (squadraNome) => {
         const s = squadre.find(el => el.nome === squadraNome);
-        return s ? `<img src='${s.logo}' class='logo-squadra'>` : "";
+        return s ? <img src='${s.logo}' class='logo-squadra'> : ``;
       };
 
       if (lista.length === 0) {
-        contenuto.textContent = "⚠️ Nessun marcatore disponibile.";
+        contenuto.textContent = `⚠️ Nessun marcatore disponibile.`;
         return;
       }
 
@@ -33,14 +33,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
       let html = '<table><thead><tr><th>Nome</th><th>Squadra</th><th>Gol</th></tr></thead><tbody>';
       ordinati.forEach(m => {
-        html += `<tr><td>${m.nome}</td><td>${getLogo(m.squadra)} ${m.squadra}</td><td>${m.gol}</td></tr>`;
+        html += <tr><td>${m.nome}</td><td>${getLogo(m.squadra)} ${m.squadra}</td><td>${m.gol}</td></tr>;
       });
       html += '</tbody></table>';
 
       contenuto.innerHTML = html;
     })
     .catch(error => {
-      console.error("Errore caricamento marcatori:", error);
-      contenuto.textContent = "Errore nel caricamento dei dati.";
+      console.error(`Errore caricamento marcatori:`, error);
+      contenuto.textContent = `Errore nel caricamento dei dati.`;
     });
 });
